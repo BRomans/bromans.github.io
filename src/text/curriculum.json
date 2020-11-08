@@ -1,0 +1,55 @@
+{
+    "study": [
+        {
+            "title": "MSc in Human Computer Interaction & Design",
+            "where": "University of Twente, Netherlands",
+            "from": "September 2020",
+            "to": "NOW",
+            "details": ""
+        },
+        {
+            "title": "MSc in Human Computer Interaction & Design",
+            "where": "Universite' Paris-Saclay, France",
+            "from": "September 2019",
+            "to": "June 2020",
+            "details": ""
+        },
+        {
+            "title": "Master in Cybersecurity",
+            "where": "Universita' di Pisa, Italy",
+            "from": "December 2018",
+            "to": "March 2019",
+            "details": ""
+        },
+        {
+            "title": "Bachelor in Computer Science",
+            "where": "Universita' di Trento, Italy",
+            "from": "September 2013",
+            "to": "March 2017",
+            "details": ""
+        }
+    ],
+    "work": [
+        {
+            "title": "AR/VR Intern Developer",
+            "where": "L.R.I. Paris-Saclay, France",
+            "from": "March 2020",
+            "to": "June 2020",
+            "details": ""
+        },
+        {
+            "title": "Software Analyst and Developer",
+            "where": "TAI Software Solutions, Italy",
+            "from": "February 2017",
+            "to": "February 2019",
+            "details": ""
+        },
+        {
+            "title": "Intern Developer",
+            "where": "TAI Software Solutions, Italy",
+            "from": "August 2016",
+            "to": "January 2017",
+            "details": ""
+        }
+    ]
+}

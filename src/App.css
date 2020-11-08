@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,400,500,700&display=swap');
+
+/* Main body of the page*/
+:root {
+  --sidebar-flex:1.5;
+  --condiv-flex:6;
+  --fontsize-p:1.2rem;
+  --fontsize-nav:1.6rem;
+  --fontsize-nav-mobile: 1rem;
+  --typing-font:3rem;
+}
+*
+{
+  margin:0;
+  padding: 0;
+}
+html {
+}
+
+body {
+
+  font-family: 'Raleway';
+}
+.App {
+  display: flex;
+  width: 100vw;
+  min-height: 100vh;
+}
+
+@media only screen and (max-width: 600px) {
+  .App {
+    display: block;
+    min-height: 100vh;
+  }
+}
+
+/* right side container*/
+.right-content {
+  padding: 5em ;
+  background-color: #f4f5f9;
+  flex:var(--condiv-flex);
+}
+
+.subtitle {
+  margin: 0.5em 0.5em 1.5em 0.5em !important;
+}
+
+.description {
+  font-size: var(--fontsize-p);
+}
+
+h1,h2,h3,h4,p{
+margin: 0.5em;
+}
+
+/* Navbar and items components */
+.Nav {
+  padding:3em 1.5em 1.5em 1.5em ;
+  flex:var(--sidebar-flex);
+  background: rgb(214, 218, 29);
+  background: linear-gradient(0deg, rgb(255, 218, 7) 30%, rgba(218, 161, 39, 0.801) 60%);
+}
+
+.Nav ul
+{
+  font-size:var(--fontsize-nav) ;
+  text-align: center;
+  list-style-type: none;
+  text-decoration: none;
+  color: white !important;
+}
+.Nav ul li
+{
+  margin: 2em;
+}
+
+.active {
+font-weight: bolder;
+}
+
+@media only screen and (max-width: 600px) {
+  .Nav {
+    
+  }
+  .Nav ul{
+    font-size:var(--fontsize-nav-mobile) ;
+    text-align: center;
+    display: inline-flex;
+  }
+  
+  .Nav ul li
+  {
+    margin: 0.5em;
+  }
+}
+
+/* Social component */
+.social {
+  position: absolute;
+  margin-top: 1em;
+  display: flex;
+  bottom: 3em;
+}
+
+.social i {
+  padding-right: 1.5em;
+  font-size: 1.5em;
+  color: #9a9b9c;
+}
+
+.social i:hover {
+  color: #ffffff;
+}
+
+/* Widecard component */ 
+.widecard {
+  border:0em solid #9a9b9c;
+  display: flex;
+  margin: 1.5em 1.5em 1.5em 1.5em;
+}
+
+.widecard:hover {
+  color: #1b1d20;
+  background-color: #ffffff;
+  box-shadow: 0 0.5em 1em rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+/* Home page */
+.profile-logo {
+  width: 40%;
+ 
+}
