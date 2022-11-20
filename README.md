@@ -1,5 +1,2 @@
-# BRomans Portfolio
-Portfolio of my favourite (and most polished) projects.
-The first version is build using a plain HTML + CSS template.
-The second version, not yet published, is a React Native app built from scratch.
-The Portfolio will host a short biography about me, my Curriculum Vitae, my projects and my articles/publications.
+# Portfolio
+In this GitHub page I collected my favourite projects on which I can claim ownership or contribution. This is not a complete collection as it does not include my professional projects, officially IP of the companies I worked for, nor the projects that were too "unpolished" to present. Each of these project thaught me something new about the topic, the context and the team dynamics during which they were designed and/or developed and they roughly follow the path that my career has been following in the recent years.
