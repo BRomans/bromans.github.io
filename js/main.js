@@ -1,117 +1,132 @@
 // Data storage
-    let contentData = {
-        about: null,
-        career: null,
-        education: null,
-        projects: null,
-        publications: null,
-        art: null,
-        music: null
-    };
+let contentData = {
+    about: null,
+    career: null,
+    education: null,
+    projects: null,
+    publications: null,
+    art: null,
+    music: null
+};
 
-    // Navigation
-    function navigateToView(viewName) {
-        // Hide all sections
-        document.querySelectorAll('.view-section').forEach(section => {
-            section.classList.remove('active');
-        });
+// Navigation
+function navigateToView(viewName) {
+    // Hide all sections
+    document.querySelectorAll('.view-section').forEach(section => {
+        section.classList.remove('active');
+    });
 
-        // Show selected section
-        const targetSection = document.getElementById(viewName);
-        if (targetSection) {
-            targetSection.classList.add('active');
-        }
-
-        // Update nav active state
-        document.querySelectorAll('.nav-item').forEach(item => {
-            item.classList.remove('active');
-            if (item.dataset.view === viewName) {
-                item.classList.add('active');
-            }
-        });
-
-        // Load content if needed
-        if (viewName !== 'home') {
-            loadContent(viewName);
-        }
-
-        // Close mobile menu
-        document.getElementById('navMenu').classList.remove('active');
-
-        // Smooth scroll to top
-        window.scrollTo({top: 0, behavior: 'smooth'});
+    // Show selected section
+    const targetSection = document.getElementById(viewName);
+    if (targetSection) {
+        targetSection.classList.add('active');
     }
 
-    // Load content from JSON files
-    async function loadContent(section) {
-        if (contentData[section]) {
-            renderContent(section, contentData[section]);
-            return;
+    // Update nav active state
+    document.querySelectorAll('.nav-item').forEach(item => {
+        item.classList.remove('active');
+        if (item.dataset.view === viewName) {
+            item.classList.add('active');
         }
+    });
 
-        try {
-            const response = await fetch(`data/${section}.json`);
-            if (!response.ok) {
-                throw new Error('Content not found');
-            }
-            const data = await response.json();
-            contentData[section] = data;
-            renderContent(section, data);
-        } catch (error) {
-            console.warn(`Loading fallback content for ${section}`);
-            renderFallbackContent(section);
-        }
+    // Load content if needed
+    if (viewName !== 'home') {
+        loadContent(viewName);
     }
 
-    // Render content based on section
-    function renderContent(section, data) {
-        const container = document.getElementById(`${section}Content`);
-        if (!container) return;
+    // Close mobile menu
+    document.getElementById('navMenu').classList.remove('active');
 
-        switch (section) {
-            case 'about':
-                renderAbout(container, data);
-                break;
-            case 'career':
-                renderCareer(container, data);
-                break;
-            case 'education':
-                renderEducation(container, data);
-                break
-            case 'projects':
-                renderProjects(container, data);
-                break;
-            case 'publications':
-                renderPublications(container, data);
-                break;
-            case 'art':
-                renderArt(container, data);
-                break;
-            case 'music':
-                renderMusic(container, data);
-                break;
-        }
+    // Smooth scroll to top
+    window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+// Load content from JSON files
+async function loadContent(section) {
+    if (contentData[section]) {
+        renderContent(section, contentData[section]);
+        return;
     }
 
-    // Render About content
-    function renderAbout(container, data) {
-        container.innerHTML = `
-                <p>${data.bio || getFallbackData('about').bio}</p>
-                ${data.skills ? `
-                    <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Skills</h3>
-                    <div class="hero-tags">
-                        ${data.skills.map(skill => `<span class="tag">${skill}</span>`).join('')}
+    try {
+        const response = await fetch(`data/${section}.json`);
+        if (!response.ok) {
+            throw new Error('Content not found');
+        }
+        const data = await response.json();
+        contentData[section] = data;
+        renderContent(section, data);
+    } catch (error) {
+        console.warn(`Loading fallback content for ${section}`);
+        renderFallbackContent(section);
+    }
+}
+
+// Render content based on section
+function renderContent(section, data) {
+    const container = document.getElementById(`${section}Content`);
+    if (!container) return;
+
+    switch (section) {
+        case 'about':
+            renderAbout(container, data);
+            break;
+        case 'career':
+            renderCareer(container, data);
+            break;
+        case 'education':
+            renderEducation(container, data);
+            break
+        case 'projects':
+            renderProjects(container, data);
+            break;
+        case 'publications':
+            renderPublications(container, data);
+            break;
+        case 'art':
+            renderArt(container, data);
+            break;
+        case 'music':
+            renderMusic(container, data);
+            break;
+    }
+}
+
+// Render About content
+function renderAbout(container, data) {
+    container.innerHTML = `
+        <p>${data.bio || getFallbackData('about').bio}</p>
+        ${data.skills ? `
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Skills</h3>
+            <div class="hero-tags">
+                ${data.skills.map(skill => `<span class="tag">${skill}</span>`).join('')}
+            </div>
+        ` : ''}
+        ${data.languages ? `
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Languages</h3>
+            <div class="languages-grid">
+                ${data.languages.map(lang => `
+                    <div class="language-item">
+                        <img src="assets/images/flags/${lang.flag}" alt="${lang.name}" class="language-flag">
+                        <span class="language-name">${lang.name}</span>
+                        <div class="language-level-bar">
+                            <div class="level-fill" style="width: ${lang.proficiency}%"></div>
+                        </div>
+                        <span class="language-level">${lang.level}</span>
                     </div>
-                ` : ''}
-            `;
-    }
+                `).join('')}
+            </div>
+        ` : ''}
+    `;
+}
 
-    // Render Career content
-    function renderCareer(container, data) {
-        const fallback = getFallbackData('career');
-        const workData = data.work || fallback.work;
+// Render Career content
+function renderCareer(container, data) {
+    const fallback = getFallbackData('career');
+    const workData = data.work || fallback.work;
 
-        container.innerHTML = `
+    container.innerHTML = `
                 <h3 style="margin-bottom: 2rem;">Work Experience</h3>
                 <div class="timeline">
                     ${workData.map(job => `
@@ -127,13 +142,13 @@
                     `).join('')}
                 </div>
             `;
-    }
+}
 
-     function renderEducation(container, data) {
-        const fallback = getFallbackData('career');
-        const educationData = data.education || fallback.education;
+function renderEducation(container, data) {
+    const fallback = getFallbackData('career');
+    const educationData = data.education || fallback.education;
 
-        container.innerHTML = `
+    container.innerHTML = `
                 <h3 style="margin-top: 4rem; margin-bottom: 2rem;">Education</h3>
                 <div class="timeline">
                     ${educationData.map(edu => `
@@ -149,13 +164,13 @@
                     `).join('')}
                 </div>
             `;
-    }
+}
 
-    // Render Projects content
-    function renderProjects(container, data) {
-        const projects = data.projects || getFallbackData('projects').projects;
+// Render Projects content
+function renderProjects(container, data) {
+    const projects = data.projects || getFallbackData('projects').projects;
 
-        container.innerHTML = `
+    container.innerHTML = `
                 <div class="grid grid-3">
                     ${projects.map((project, index) => `
                         <div class="card" onclick="showProjectDetails(${index})">
@@ -170,13 +185,13 @@
                     `).join('')}
                 </div>
             `;
-    }
+}
 
-    // Render Publications content
-    function renderPublications(container, data) {
-        const publications = data.publications || getFallbackData('publications').publications;
+// Render Publications content
+function renderPublications(container, data) {
+    const publications = data.publications || getFallbackData('publications').publications;
 
-        container.innerHTML = `
+    container.innerHTML = `
                 <div class="grid grid-2">
                     ${publications.map(pub => `
                         <div class="card">
@@ -195,13 +210,13 @@
                     `).join('')}
                 </div>
             `;
-    }
+}
 
-    // Render Art content
-    function renderArt(container, data) {
-        const installations = data.installations || getFallbackData('art').installations;
+// Render Art content
+function renderArt(container, data) {
+    const installations = data.installations || getFallbackData('art').installations;
 
-        container.innerHTML = `
+    container.innerHTML = `
                 <div class="grid grid-3">
                     ${installations.map(art => `
                         <div class="card">
@@ -222,13 +237,13 @@
                     `).join('')}
                 </div>
             `;
-    }
+}
 
-    // Render Music content
-    function renderMusic(container, data) {
-        const music = data || getFallbackData('music');
+// Render Music content
+function renderMusic(container, data) {
+    const music = data || getFallbackData('music');
 
-        container.innerHTML = `
+    container.innerHTML = `
                 <div style="margin-bottom: 3rem;">
                     <h3>About My Music</h3>
                     <p>${music.bio || 'Electronic music producer and DJ, exploring the intersection of neuroscience and sound.'}</p>
@@ -268,17 +283,17 @@
                     </div>
                 ` : ''}
             `;
-    }
+}
 
-    // Show project details in modal
-    function showProjectDetails(index) {
-        const projects = contentData.projects?.projects || getFallbackData('projects').projects;
-        const project = projects[index];
+// Show project details in modal
+function showProjectDetails(index) {
+    const projects = contentData.projects?.projects || getFallbackData('projects').projects;
+    const project = projects[index];
 
-        const modal = document.getElementById('projectModal');
-        const modalBody = document.getElementById('modalBody');
+    const modal = document.getElementById('projectModal');
+    const modalBody = document.getElementById('modalBody');
 
-        modalBody.innerHTML = `
+    modalBody.innerHTML = `
                 <h2>${project.title}</h2>
                 ${project.image ? `<img src="${project.image}" alt="${project.title}" style="width: 100%; border-radius: 12px; margin: 1rem 0;">` : ''}
                 ${project.video ? `
@@ -298,210 +313,210 @@
                 </div>
             `;
 
-        modal.classList.add('active');
-    }
+    modal.classList.add('active');
+}
 
-    // Close modal
-    function closeModal() {
-        document.getElementById('projectModal').classList.remove('active');
-    }
+// Close modal
+function closeModal() {
+    document.getElementById('projectModal').classList.remove('active');
+}
 
-    // Convert video URLs to embed format
-    function getVideoEmbed(url) {
-        if (url.includes('youtube.com/watch?v=')) {
-            const videoId = url.split('v=')[1].split('&')[0];
-            return `https://www.youtube.com/embed/${videoId}`;
-        } else if (url.includes('youtu.be/')) {
-            const videoId = url.split('youtu.be/')[1].split('?')[0];
-            return `https://www.youtube.com/embed/${videoId}`;
-        } else if (url.includes('vimeo.com/')) {
-            const videoId = url.split('vimeo.com/')[1].split('?')[0];
-            return `https://player.vimeo.com/video/${videoId}`;
+// Convert video URLs to embed format
+function getVideoEmbed(url) {
+    if (url.includes('youtube.com/watch?v=')) {
+        const videoId = url.split('v=')[1].split('&')[0];
+        return `https://www.youtube.com/embed/${videoId}`;
+    } else if (url.includes('youtu.be/')) {
+        const videoId = url.split('youtu.be/')[1].split('?')[0];
+        return `https://www.youtube.com/embed/${videoId}`;
+    } else if (url.includes('vimeo.com/')) {
+        const videoId = url.split('vimeo.com/')[1].split('?')[0];
+        return `https://player.vimeo.com/video/${videoId}`;
+    }
+    return url;
+}
+
+// Fallback content
+function getFallbackData(section) {
+    const fallbackData = {
+        about: {
+            bio: "I am Michele Romani, a PhD student in Computer Science specializing in Brain-Computer Interfaces. I come from Asola, a little town in Northern Italy near the beautiful Garda lake. As far as I remember, I have always been passionate about understanding our relationship with technology. I strongly believe that my work should have a positive impact on the relationship between humans and technology, and that AI will play a major role in better understanding the underlying cognitive processes of the brain. At the core, I see myself as a designer: my work lies at the intersection between technology and human behavior, focused on enhancing the interaction between users and computers through Human-Centered AI applications.",
+            skills: ["Machine Learning", "Python", "Unity", "Brain-Computer Interfaces", "Signal Processing", "Creative Design", "Deep Learning", "C++", "C#"]
+        },
+        career: {
+            work: [
+                {
+                    title: "Research & Development",
+                    company: "g.tec Medical Engineering GmbH",
+                    period: "Sept 2023 - May 2024",
+                    description: "Development of Brain-Computer Interfaces for Gaming",
+                    location: "Schiedlberg, Austria"
+                },
+                {
+                    title: "Research Engineer",
+                    company: "myBrainTechnologies",
+                    period: "Apr 2022 - Jul 2023",
+                    description: "Research and development of ML pipelines in Python for neuroscience applications.",
+                    location: "Paris, France"
+                },
+                {
+                    title: "Research Engineer, Intern",
+                    company: "University of Twente - myBrainTechnologies",
+                    period: "Mar 2021 - Sep 2021",
+                    description: "Research project in Python on emotions classification during music listening.",
+                    location: "Enschede, The Netherlands"
+                }
+            ],
+            education: [
+                {
+                    degree: "PhD in Computer Science",
+                    institution: "Università di Trento",
+                    period: "2023 - Present",
+                    specialization: "Brain-Computer Interfaces for Gaming",
+                    location: "Trento, Italy"
+                },
+                {
+                    degree: "MSc HCI & Design",
+                    institution: "University of Twente & Université Paris-Saclay",
+                    period: "2019 - 2021",
+                    specialization: "Intelligent Systems & Situated Interaction",
+                    location: "Netherlands & France"
+                },
+                {
+                    degree: "BSc Computer Science",
+                    institution: "Università di Trento",
+                    period: "2013 - 2017",
+                    specialization: "Minor in Economics and Finance",
+                    location: "Trento, Italy"
+                }
+            ]
+        },
+        projects: {
+            projects: [
+                {
+                    title: "BCHJam",
+                    description: "Neuro controller for live music performance in shared Mixed Reality environments.",
+                    fullDescription: "BCHJam is a neuro controller for live music performance in shared Mixed Reality environments. The musician, equipped with a BCI, can use brain input to activate effects and control the music in real-time. Alpha and beta waves generate visual effects visible to the audience using mixed reality headsets.",
+                    tags: ["BCI", "Machine Learning", "Unity", "Mixed Reality"],
+                    award: "1st Place - BR41N.IO 2024",
+                    github: "https://github.com/BRomans/BCHJam",
+                    image: "assets/projects/BCHJam/bchjam.png",
+                    video: "https://youtube.com/watch?v=...",
+                },
+                {
+                    title: "NervCon",
+                    description: "Powerful overlay controller integrating BCI technology with games.",
+                    fullDescription: "NervCon is a powerfful overlay controller designed to seamlessly integrate Brain-Computer Interface (BCI) technology with your favourite games. This innovative controller allows users to control games using their brain signals, making gaming more immersive and accessible.",
+                    tags: ["BCI", "Unity", "Gaming", "Machine Learning"],
+                    award: "1st Place - NTX Global Hackathon 2023",
+                    github: "https://github.com/unicorn-bi/NervCon",
+                    image: "assets/projects/NervCon/nervcon.png"
+                },
+                {
+                    title: "P.E.R.S.O.N.A.",
+                    description: "AI for artistic expression of human empathy.",
+                    fullDescription: "P.E.R.S.O.N.A. is an AI created for artistic expression of human empathy. A participatory experience of an interactive reinforcement learning model that learns to communicate with humans through facial expressions and proximity sensors.",
+                    tags: ["AI", "Machine Learning", "Unreal Engine", "Arduino"],
+                    award: "3rd Place - CREARTATHON 2021",
+                    github: "https://github.com/BRomans/PERSONA",
+                    image: "assets/projects/PERSONA/poster.png"
+                }
+            ]
+        },
+        publications: {
+            publications: [
+                {
+                    title: "BCHJam: a Brain-Computer Music Interface for Live Music Performance",
+                    type: "Conference Paper",
+                    year: "2024",
+                    venue: "IEEE",
+                    abstract: "Integration of brain-computer interfaces and mixed reality headsets in Internet of Musical Things performance ecosystems.",
+                    link: "https://ieeexplore.ieee.org/document/10704087",
+                    github: "https://github.com/BRomans/BCHJam"
+                },
+                {
+                    title: "Hybrid Harmony: A Multi-Person Neurofeedback Application",
+                    type: "Journal Article",
+                    year: "2021",
+                    venue: "Frontiers in Neuroergonomics",
+                    abstract: "Hyperscanning research demonstrating brain activity synchronization across people during social interaction.",
+                    link: "https://www.frontiersin.org/articles/10.3389/fnrgo.2021.687108/full"
+                }
+            ]
+        },
+        art: {
+            installations: [
+                {
+                    title: "Neural Resonance",
+                    year: "2024",
+                    description: "Interactive installation using EEG to create real-time visual and audio experiences.",
+                    venue: "Digital Art Festival",
+                    image: "assets/art/neural_resonance.jpg"
+                }
+            ]
+        },
+        music: {
+            bio: "Electronic music producer and DJ, exploring the intersection of neuroscience and sound design. My sets blend techno, ambient, and experimental electronic music, often incorporating live brain-computer interface performances.",
+            releases: [],
+            performances: []
         }
-        return url;
-    }
+    };
 
-    // Fallback content
-    function getFallbackData(section) {
-        const fallbackData = {
-            about: {
-                bio: "I am Michele Romani, a PhD student in Computer Science specializing in Brain-Computer Interfaces. I come from Asola, a little town in Northern Italy near the beautiful Garda lake. As far as I remember, I have always been passionate about understanding our relationship with technology. I strongly believe that my work should have a positive impact on the relationship between humans and technology, and that AI will play a major role in better understanding the underlying cognitive processes of the brain. At the core, I see myself as a designer: my work lies at the intersection between technology and human behavior, focused on enhancing the interaction between users and computers through Human-Centered AI applications.",
-                skills: ["Machine Learning", "Python", "Unity", "Brain-Computer Interfaces", "Signal Processing", "Creative Design", "Deep Learning", "C++", "C#"]
-            },
-            career: {
-                work: [
-                    {
-                        title: "Research & Development",
-                        company: "g.tec Medical Engineering GmbH",
-                        period: "Sept 2023 - May 2024",
-                        description: "Development of Brain-Computer Interfaces for Gaming",
-                        location: "Schiedlberg, Austria"
-                    },
-                    {
-                        title: "Research Engineer",
-                        company: "myBrainTechnologies",
-                        period: "Apr 2022 - Jul 2023",
-                        description: "Research and development of ML pipelines in Python for neuroscience applications.",
-                        location: "Paris, France"
-                    },
-                    {
-                        title: "Research Engineer, Intern",
-                        company: "University of Twente - myBrainTechnologies",
-                        period: "Mar 2021 - Sep 2021",
-                        description: "Research project in Python on emotions classification during music listening.",
-                        location: "Enschede, The Netherlands"
-                    }
-                ],
-                education: [
-                    {
-                        degree: "PhD in Computer Science",
-                        institution: "Università di Trento",
-                        period: "2023 - Present",
-                        specialization: "Brain-Computer Interfaces for Gaming",
-                        location: "Trento, Italy"
-                    },
-                    {
-                        degree: "MSc HCI & Design",
-                        institution: "University of Twente & Université Paris-Saclay",
-                        period: "2019 - 2021",
-                        specialization: "Intelligent Systems & Situated Interaction",
-                        location: "Netherlands & France"
-                    },
-                    {
-                        degree: "BSc Computer Science",
-                        institution: "Università di Trento",
-                        period: "2013 - 2017",
-                        specialization: "Minor in Economics and Finance",
-                        location: "Trento, Italy"
-                    }
-                ]
-            },
-            projects: {
-                projects: [
-                    {
-                        title: "BCHJam",
-                        description: "Neuro controller for live music performance in shared Mixed Reality environments.",
-                        fullDescription: "BCHJam is a neuro controller for live music performance in shared Mixed Reality environments. The musician, equipped with a BCI, can use brain input to activate effects and control the music in real-time. Alpha and beta waves generate visual effects visible to the audience using mixed reality headsets.",
-                        tags: ["BCI", "Machine Learning", "Unity", "Mixed Reality"],
-                        award: "1st Place - BR41N.IO 2024",
-                        github: "https://github.com/BRomans/BCHJam",
-                        image: "assets/projects/BCHJam/bchjam.png",
-                        video: "https://youtube.com/watch?v=...",
-                    },
-                    {
-                        title: "NervCon",
-                        description: "Powerful overlay controller integrating BCI technology with games.",
-                        fullDescription: "NervCon is a powerfful overlay controller designed to seamlessly integrate Brain-Computer Interface (BCI) technology with your favourite games. This innovative controller allows users to control games using their brain signals, making gaming more immersive and accessible.",
-                        tags: ["BCI", "Unity", "Gaming", "Machine Learning"],
-                        award: "1st Place - NTX Global Hackathon 2023",
-                        github: "https://github.com/unicorn-bi/NervCon",
-                        image: "assets/projects/NervCon/nervcon.png"
-                    },
-                    {
-                        title: "P.E.R.S.O.N.A.",
-                        description: "AI for artistic expression of human empathy.",
-                        fullDescription: "P.E.R.S.O.N.A. is an AI created for artistic expression of human empathy. A participatory experience of an interactive reinforcement learning model that learns to communicate with humans through facial expressions and proximity sensors.",
-                        tags: ["AI", "Machine Learning", "Unreal Engine", "Arduino"],
-                        award: "3rd Place - CREARTATHON 2021",
-                        github: "https://github.com/BRomans/PERSONA",
-                        image: "assets/projects/PERSONA/poster.png"
-                    }
-                ]
-            },
-            publications: {
-                publications: [
-                    {
-                        title: "BCHJam: a Brain-Computer Music Interface for Live Music Performance",
-                        type: "Conference Paper",
-                        year: "2024",
-                        venue: "IEEE",
-                        abstract: "Integration of brain-computer interfaces and mixed reality headsets in Internet of Musical Things performance ecosystems.",
-                        link: "https://ieeexplore.ieee.org/document/10704087",
-                        github: "https://github.com/BRomans/BCHJam"
-                    },
-                    {
-                        title: "Hybrid Harmony: A Multi-Person Neurofeedback Application",
-                        type: "Journal Article",
-                        year: "2021",
-                        venue: "Frontiers in Neuroergonomics",
-                        abstract: "Hyperscanning research demonstrating brain activity synchronization across people during social interaction.",
-                        link: "https://www.frontiersin.org/articles/10.3389/fnrgo.2021.687108/full"
-                    }
-                ]
-            },
-            art: {
-                installations: [
-                    {
-                        title: "Neural Resonance",
-                        year: "2024",
-                        description: "Interactive installation using EEG to create real-time visual and audio experiences.",
-                        venue: "Digital Art Festival",
-                        image: "assets/art/neural_resonance.jpg"
-                    }
-                ]
-            },
-            music: {
-                bio: "Electronic music producer and DJ, exploring the intersection of neuroscience and sound design. My sets blend techno, ambient, and experimental electronic music, often incorporating live brain-computer interface performances.",
-                releases: [],
-                performances: []
-            }
-        };
+    return fallbackData[section] || {};
+}
 
-        return fallbackData[section] || {};
-    }
+// Render fallback content
+function renderFallbackContent(section) {
+    const fallbackData = getFallbackData(section);
+    renderContent(section, fallbackData);
+}
 
-    // Render fallback content
-    function renderFallbackContent(section) {
-        const fallbackData = getFallbackData(section);
-        renderContent(section, fallbackData);
-    }
+// Mobile menu toggle
+document.getElementById('menuToggle').addEventListener('click', function () {
+    document.getElementById('navMenu').classList.toggle('active');
+});
 
-    // Mobile menu toggle
-    document.getElementById('menuToggle').addEventListener('click', function () {
-        document.getElementById('navMenu').classList.toggle('active');
-    });
-
-    // Nav item clicks
-    document.querySelectorAll('.nav-item').forEach(item => {
-        item.addEventListener('click', function () {
-            const view = this.dataset.view;
-            navigateToView(view);
-        });
-    });
-
-    // Close modal on outside click
-    document.getElementById('projectModal').addEventListener('click', function (e) {
-        if (e.target === this) {
-            closeModal();
-        }
-    });
-
-    // Handle scroll effect on navbar
-    let lastScroll = 0;
-    window.addEventListener('scroll', () => {
-        const navbar = document.getElementById('navbar');
-        const currentScroll = window.pageYOffset;
-
-        if (currentScroll > lastScroll && currentScroll > 100) {
-            navbar.style.transform = 'translateY(-100%)';
-        } else {
-            navbar.style.transform = 'translateY(0)';
-        }
-
-        lastScroll = currentScroll;
-    });
-
-    // Initialize
-    document.addEventListener('DOMContentLoaded', function () {
-        // Check for hash navigation
-        if (window.location.hash) {
-            const view = window.location.hash.substring(1);
-            navigateToView(view);
-        }
-    });
-
-    // Handle browser back/forward
-    window.addEventListener('hashchange', function () {
-        const view = window.location.hash.substring(1) || 'home';
+// Nav item clicks
+document.querySelectorAll('.nav-item').forEach(item => {
+    item.addEventListener('click', function () {
+        const view = this.dataset.view;
         navigateToView(view);
     });
+});
+
+// Close modal on outside click
+document.getElementById('projectModal').addEventListener('click', function (e) {
+    if (e.target === this) {
+        closeModal();
+    }
+});
+
+// Handle scroll effect on navbar
+let lastScroll = 0;
+window.addEventListener('scroll', () => {
+    const navbar = document.getElementById('navbar');
+    const currentScroll = window.pageYOffset;
+
+    if (currentScroll > lastScroll && currentScroll > 100) {
+        navbar.style.transform = 'translateY(-100%)';
+    } else {
+        navbar.style.transform = 'translateY(0)';
+    }
+
+    lastScroll = currentScroll;
+});
+
+// Initialize
+document.addEventListener('DOMContentLoaded', function () {
+    // Check for hash navigation
+    if (window.location.hash) {
+        const view = window.location.hash.substring(1);
+        navigateToView(view);
+    }
+});
+
+// Handle browser back/forward
+window.addEventListener('hashchange', function () {
+    const view = window.location.hash.substring(1) || 'home';
+    navigateToView(view);
+});
