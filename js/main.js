@@ -9,6 +9,24 @@ let contentData = {
     music: null
 };
 
+function initTheme() {
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    document.getElementById('themeToggle').checked = savedTheme === 'light';
+}
+
+function toggleTheme() {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+}
+
+// Add event listener for theme toggle
+document.getElementById('themeToggle').addEventListener('change', toggleTheme);
+
+
 // Navigation
 function navigateToView(viewName) {
     // Hide all sections
@@ -606,6 +624,7 @@ window.addEventListener('scroll', () => {
 
 // Initialize
 document.addEventListener('DOMContentLoaded', function () {
+    initTheme();
     // Check for hash navigation
     if (window.location.hash) {
         const view = window.location.hash.substring(1);
