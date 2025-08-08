@@ -293,45 +293,93 @@ function renderMusic(container, data) {
     const music = data || getFallbackData('music');
 
     container.innerHTML = `
-                <div style="margin-bottom: 3rem;">
-                    <h3>About My Music</h3>
-                    <p>${music.bio || 'Electronic music producer and DJ, exploring the intersection of neuroscience and sound.'}</p>
+        <div class="music-bio">
+            <h3>${music.artist_name || 'Artist Name'}</h3>
+            <p>${music.bio}</p>
+            ${music.genres ? `
+                <div class="music-genres">
+                    ${music.genres.map(genre => `<span class="genre-tag">${genre}</span>`).join('')}
                 </div>
-
-                ${music.releases ? `
-                    <h3 style="margin-bottom: 2rem;">Releases</h3>
-                    <div class="grid grid-3">
-                        ${music.releases.map(release => `
-                            <div class="card">
-                                ${release.artwork ? `<img src="${release.artwork}" alt="${release.title}" class="card-image">` : ''}
-                                <h3>${release.title}</h3>
-                                <div class="card-meta">
-                                    <span class="card-tag">${release.type}</span>
-                                    <span class="card-tag">${release.year}</span>
-                                </div>
-                                ${release.spotify ? `<a href="${release.spotify}" target="_blank" class="btn btn-secondary">Listen on Spotify</a>` : ''}
-                                ${release.soundcloud ? `<a href="${release.soundcloud}" target="_blank" class="btn btn-secondary">SoundCloud</a>` : ''}
+            ` : ''}
+        </div>
+        
+        ${music.releases ? `
+            <h3 class="section-subtitle">Releases</h3>
+            <div class="releases-grid">
+                ${music.releases.map(release => `
+                    <div class="release-card">
+                        ${release.artwork ? `<img src="${release.artwork}" alt="${release.title}" class="release-artwork">` : ''}
+                        <div class="release-info">
+                            <h4>${release.title}</h4>
+                            <div class="release-meta">
+                                <span class="card-tag">${release.type}</span>
+                                <span class="card-tag">${release.year}</span>
                             </div>
-                        `).join('')}
-                    </div>
-                ` : ''}
-
-                ${music.performances ? `
-                    <h3 style="margin-top: 3rem; margin-bottom: 2rem;">Recent Performances</h3>
-                    <div class="grid grid-2">
-                        ${music.performances.map(gig => `
-                            <div class="card">
-                                <h3>${gig.event}</h3>
-                                <div class="card-meta">
-                                    <span class="card-tag">${gig.venue}</span>
-                                    <span class="card-tag">${gig.date}</span>
+                            <div class="release-platforms">
+                                ${release.spotify_uri ? `
+                                    <iframe src="https://open.spotify.com/embed/album/${release.spotify_uri.split(':')[2]}" 
+                                            width="100%" height="152" frameborder="0" 
+                                            allowtransparency="true" allow="encrypted-media">
+                                    </iframe>
+                                ` : ''}
+                                ${release.soundcloud_url && !release.spotify_uri ? `
+                                    <iframe width="100%" height="166" scrolling="no" frameborder="no" 
+                                            allow="autoplay" 
+                                            src="https://w.soundcloud.com/player/?url=${encodeURIComponent(release.soundcloud_url)}&color=%236366f1&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true">
+                                    </iframe>
+                                ` : ''}
+                                <div class="platform-links">
+                                    ${release.spotify_uri ? `<a href="https://open.spotify.com/album/${release.spotify_uri.split(':')[2]}" target="_blank" class="platform-btn spotify">Spotify</a>` : ''}
+                                    ${release.soundcloud_url ? `<a href="${release.soundcloud_url}" target="_blank" class="platform-btn soundcloud">SoundCloud</a>` : ''}
+                                    ${release.youtube_url ? `<a href="${release.youtube_url}" target="_blank" class="platform-btn youtube">YouTube</a>` : ''}
                                 </div>
-                                <p>${gig.description || ''}</p>
                             </div>
-                        `).join('')}
+                        </div>
                     </div>
-                ` : ''}
-            `;
+                `).join('')}
+            </div>
+        ` : ''}
+        
+        ${music.performances ? `
+            <h3 class="section-subtitle">Recent Performances</h3>
+            <div class="performances-grid">
+                ${music.performances.map((gig, index) => `
+                    <div class="performance-card">
+                        <div class="performance-info">
+                            <h4>${gig.event}</h4>
+                            <div class="performance-meta">
+                                <span class="venue">${gig.venue}</span>
+                                <span class="location">${gig.location}</span>
+                                <span class="date">${gig.date}</span>
+                            </div>
+                            <p>${gig.description || ''}</p>
+                        </div>
+                        ${gig.media ? `
+                            <div class="performance-gallery">
+                                ${gig.media.map((item, mediaIndex) => `
+                                    ${item.type === 'image' ? `
+                                        <div class="gallery-item" onclick="openLightbox('${item.url}')">
+                                            <img src="${item.url}" alt="${item.caption || gig.event}">
+                                            ${item.caption ? `<span class="caption">${item.caption}</span>` : ''}
+                                        </div>
+                                    ` : `
+                                        <div class="gallery-item video-item" onclick="playVideo('${item.url}')">
+                                            <img src="${item.thumbnail}" alt="${gig.event}">
+                                            <div class="play-icon">
+                                                <svg width="40" height="40" fill="white" viewBox="0 0 24 24">
+                                                    <path d="M8 5v14l11-7z"/>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    `}
+                                `).join('')}
+                            </div>
+                        ` : ''}
+                    </div>
+                `).join('')}
+            </div>
+        ` : ''}
+    `;
 }
 
 // Show project details in modal
