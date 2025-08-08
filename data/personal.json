@@ -1,0 +1,187 @@
+{
+  "name": "Michele Romani",
+  "title": "PhD Student in Computer Science",
+  "subtitle": "Generalization of Brain-Computer Interfaces",
+  "bio": "I am Michele Romani, and I come from Asola, a little town in the countryside of Northern Italy near the beautiful Garda lake. As far as I remember, I have always been passionate about understanding our relationship with technology. I clearly remember the first time I used a computer: it was an immediate click. It was not just a mere work tool, but an extension of my brain, and one that allowed me to progressively unleash my creativity and cultivate my skills like anything else before. I delved into drawing, editing, modding games, learnt English, problem solving, and then when years later I begun my studies and started programming seriously, I realized that my initial intuition was correct and I could achieve much more by implementing my own intuitions and ideas into real applications. I strongly believe that my work should have a positive impact on the relationship between humans and technology, and that AI will play a major role in better understanding the underlying cognitive processes of the brain in the next iteration of neuro-scientific research and applications. At the core, I see myself as a \"designer\": my work lies on the intersection between technology and human behavior, and as such I am focused on enhancing the interaction between users and computers through the design of Human-Centered AI applications.",
+  "image": "assets/images/profile_2.jpg",
+  "location": "Trento, Italy",
+  "email": "michele.romani.zaltieri@gmail.com",
+  "phone": null,
+  "website": "https://github.com/BRomans",
+  "social": [
+    {
+      "platform": "linkedin",
+      "url": "https://www.linkedin.com/in/michele-romani/",
+      "icon": "fab fa-linkedin-in",
+      "username": "michele-romani"
+    },
+    {
+      "platform": "github",
+      "url": "https://github.com/BRomans",
+      "icon": "fab fa-github-alt",
+      "username": "BRomans"
+    },
+    {
+      "platform": "email",
+      "url": "mailto:michele.romani.zaltieri@gmail.com",
+      "icon": "fas fa-envelope",
+      "username": "michele.romani.zaltieri@gmail.com"
+    },
+    {
+      "platform": "spotify",
+      "url": "https://open.spotify.com/user/1182667167?si=df67d383553d4b22",
+      "icon": "fab fa-spotify",
+      "username": "1182667167"
+    },
+    {
+      "platform": "goodreads",
+      "url": "https://www.goodreads.com/rockthenet",
+      "icon": "fab fa-goodreads",
+      "username": "rockthenet"
+    }
+  ],
+  "resume_url": "https://drive.google.com/file/d/1eywsPZrC9gTic8v5YT-r5Rxossy-J7WB/view?usp=share_link",
+  "cv_url": "https://drive.google.com/file/d/1BxDIH-yJEjHcRLWNS38QK0Luie0f6WPH/view?usp=sharing",
+  "languages": [
+    {
+      "language": "Italian",
+      "level": "Native Speaker",
+      "stars": 5
+    },
+    {
+      "language": "English",
+      "level": "Professional Proficiency",
+      "stars": 4
+    },
+    {
+      "language": "French",
+      "level": "Intermediate Proficiency",
+      "stars": 3
+    }
+  ],
+  "skills": [
+    {
+      "name": "Machine Learning",
+      "level": "Pro",
+      "percentage": 70,
+      "description": "Machine learning"
+    },
+    {
+      "name": "Python",
+      "level": "Pro",
+      "percentage": 70,
+      "description": "NumPy, Pandas, SciPy, MNE"
+    },
+    {
+      "name": "Unity (C#)",
+      "level": "Pro",
+      "percentage": 70,
+      "description": "Game development"
+    },
+    {
+      "name": "Scientific Research",
+      "level": "Pro",
+      "percentage": 70,
+      "description": "Scientific research in academia and industry"
+    },
+    {
+      "name": "C#",
+      "level": "Pro",
+      "percentage": 70,
+      "description": "C#"
+    },
+    {
+      "name": "Creative Design",
+      "level": "Pro",
+      "percentage": 70,
+      "description": "Design not oriented to finding the solution of a specific problem"
+    },
+    {
+      "name": "Signal Processing",
+      "level": "Pro",
+      "percentage": 70,
+      "description": "Processing of biosignals"
+    },
+    {
+      "name": "Deep Learning",
+      "level": "Intermediate",
+      "percentage": 65,
+      "description": "Deep learning"
+    },
+    {
+      "name": "C++",
+      "level": "Intermediate",
+      "percentage": 55,
+      "description": "C++"
+    }
+  ],
+  "music": [
+    {
+      "title": "This fire!",
+      "artist": "Franz Ferdinand",
+      "url": "https://www.youtube.com/watch?v=haW_ruZ_Be8&ab_channel=franzferdinandVEVO"
+    },
+    {
+      "title": "Canopée",
+      "artist": "Polo & Pan",
+      "url": "https://www.youtube.com/watch?v=f5IruTV-LGQ&ab_channel=Ekleroshockrecords"
+    },
+    {
+      "title": "Bones",
+      "artist": "Imagine Dragons",
+      "url": "https://www.youtube.com/watch?v=TO-_3tck2tg&ab_channel=ImagineDragonsVEVO"
+    },
+    {
+      "title": "L.S.F.",
+      "artist": "Kasabian",
+      "url": "https://www.youtube.com/watch?v=yYYp5-mGQRI&ab_channel=KasabianVEVO"
+    },
+    {
+      "title": "It makes you forget",
+      "artist": "Peggy Guo",
+      "url": "https://www.youtube.com/watch?v=SlbVgjFvE3I&ab_channel=NinjaTune"
+    },
+    {
+      "title": "Who said",
+      "artist": "Planet Funk",
+      "url": "https://www.youtube.com/watch?v=4UQz2FGAFwI&ab_channel=JE%7CJustEntertainment"
+    },
+    {
+      "title": "ZITTI E BUONI",
+      "artist": "Maneskin",
+      "url": "https://www.youtube.com/watch?v=QN1odfjtMoo&ab_channel=ManeskinVEVO"
+    }
+  ],
+  "reading": [
+    {
+      "title": "Human-Centered AI",
+      "author": "Ben Shneiderman",
+      "url": "https://www.goodreads.com/book/show/59450005-human-centered-ai"
+    },
+    {
+      "title": "Nihilism and technology",
+      "author": "Nolen Gertz",
+      "url": "https://www.goodreads.com/book/show/39844731-nihilism-and-technology"
+    },
+    {
+      "title": "Descartes' Error",
+      "author": "Antònio R. Damàsio",
+      "url": "https://www.goodreads.com/book/show/103867.Descartes_Error"
+    },
+    {
+      "title": "The computer and the brain",
+      "author": "John von Neumann",
+      "url": "https://www.goodreads.com/book/show/358880.The_Computer_and_the_Brain"
+    },
+    {
+      "title": "Dune",
+      "author": "Frank Herbert",
+      "url": "https://www.goodreads.com/book/show/44767458-dune"
+    },
+    {
+      "title": "Brave New World",
+      "author": "Aldous Huxley",
+      "url": "https://www.goodreads.com/book/show/5129.Brave_New_World"
+    }
+  ]
+}

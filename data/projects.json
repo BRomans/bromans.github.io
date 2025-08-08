@@ -1,0 +1,282 @@
+{
+  "featured": [
+    {
+      "id": 1,
+      "title": "BCHJam",
+      "subtitle": "AI & Art - Brain-Computer Interfaces, Machine Learning, Unity, Reaper, Mixed Reality",
+      "description": "BCHJam is a neuro controller for live music performance in shared Mixed Reality environments. The musician, equipped with a BCI, can use brain input to activate effects and control the music in real-time. At the same time, the alpha and beta waves are used to generate visual effects visible to the audience using a mixed reality headset. BCHJam is a project that aims to explore the possibilities of using BCI in live music performances and to create a new form of artistic expression.",
+      "image": "assets/projects/BCHJam/bchjam.png",
+      "tags": ["BCI", "Machine Learning", "Unity", "Mixed Reality", "Music", "AI", "Art"],
+      "year": "2024",
+      "status": "completed",
+      "featured": true,
+      "award": {
+        "title": "1st Place",
+        "event": "BR41N.IO 2024",
+        "color": "#ffcc00"
+      },
+      "links": [
+        {
+          "title": "View on Github",
+          "url": "https://github.com/BRomans/BCHJam",
+          "icon": "fab fa-github-alt",
+          "type": "github"
+        }
+      ],
+      "videos": [],
+      "category": "neurogame"
+    },
+    {
+      "id": 2,
+      "title": "NervCon",
+      "subtitle": "Neurogame - Brain-Computer Interfaces, Machine Learning, Unity",
+      "description": "NervCon is a powerful overlay controller designed to seamlessly integrate Brain-Computer Interface (BCI) technology with your favourite games. This innovative controller allows users to control games using their brain signals, making gaming more immersive and accessible. NervCon specifically supports the g.tec Unicorn and it is built as an overlay application, providing a user-friendly and drag-and-drop customizable interface for connecting your mind to the gaming experience.",
+      "image": "assets/projects/NervCon/nervcon.png",
+      "tags": ["BCI", "Machine Learning", "Unity", "Gaming", "Neurotechnology"],
+      "year": "2023",
+      "status": "completed",
+      "featured": true,
+      "award": {
+        "title": "1st Place",
+        "event": "NTX Global Hackathon 2023",
+        "color": "#ffcc00"
+      },
+      "links": [
+        {
+          "title": "View on Github",
+          "url": "https://github.com/unicorn-bi/NervCon",
+          "icon": "fab fa-github-alt",
+          "type": "github"
+        }
+      ],
+      "videos": [],
+      "category": "neurogame"
+    },
+    {
+      "id": 3,
+      "title": "P.E.R.S.O.N.A.",
+      "subtitle": "AI & Art - Machine Learning, Unreal Engine, Arduino",
+      "description": "P.E.R.S.O.N.A. is an AI created for artistic expression of human empathy during the CreARTathon competition. At the core, this was a participatory experience of an interactive reinforcement learning model, that learns to communicate with the human participant through facial expressions and proximity sensors.",
+      "image": "assets/projects/PERSONA/poster.png",
+      "tags": ["AI", "Art", "Machine Learning", "Unreal Engine", "Arduino", "Interactive"],
+      "year": "2021",
+      "status": "completed",
+      "featured": true,
+      "award": {
+        "title": "3rd Place",
+        "event": "CREARTATHON 2021",
+        "color": "#cc6633"
+      },
+      "links": [
+        {
+          "title": "View on Github",
+          "url": "https://github.com/BRomans/PERSONA",
+          "icon": "fab fa-github-alt",
+          "type": "github"
+        }
+      ],
+      "videos": [],
+      "category": "ai_art"
+    },
+    {
+      "id": 4,
+      "title": "Deep Harbour",
+      "subtitle": "Deep Learning",
+      "description": "Deep Harbour is a platform for cargo owners (importers and exporters), freight forwarders and transportation companies to efficiently handle container's flow by adjusting prices of supply/demand using Dynamic Pricing. The Dynamic Pricing Model is based on LSTM networks and fed with prediction of peaks from historical data of ships and containers. It can facilitate and balance the flow of containers in and out of the harbour.",
+      "image": "assets/projects/DeepHarbor/deep_harbor.png",
+      "tags": ["Deep Learning", "LSTM", "Dynamic Pricing", "Logistics", "Machine Learning"],
+      "year": "2020",
+      "status": "completed",
+      "featured": true,
+      "award": {
+        "title": "2nd Place",
+        "event": "EIT DIGITAL DEEPHACK IN HAMBURG 2020",
+        "color": "dimgrey"
+      },
+      "links": [
+        {
+          "title": "View on Github",
+          "url": "#",
+          "icon": "fab fa-github-alt",
+          "type": "github"
+        }
+      ],
+      "videos": [],
+      "category": "machine_learning"
+    }
+  ],
+  "regular": [
+    {
+      "id": 5,
+      "title": "Brain Hockey",
+      "subtitle": "Neurogame - Brain-Computer Interfaces, Machine Learning, EEG, Unity",
+      "description": "BrainHockey is an innovative take on the beloved Pong game, where players use their brainpower to control the paddle instead of traditional keyboard or mouse inputs. Designed for EEG devices, BrainHockey taps into the potential of BCI technology, allowing players to move their paddle simply by focusing and concentrating on the Neurofeedback Targets.",
+      "image": "assets/projects/BrainHockey/brain_hockey.png",
+      "tags": ["BCI", "Machine Learning", "EEG", "Unity", "Neurofeedback"],
+      "year": "2024",
+      "status": "completed",
+      "featured": false,
+      "links": [
+        {
+          "title": "View on Github",
+          "url": "https://github.com/BRomans/BrainHockey",
+          "icon": "fab fa-github-alt",
+          "type": "github"
+        }
+      ],
+      "videos": [],
+      "category": "neurogame"
+    },
+    {
+      "id": 6,
+      "title": "The Green Shield",
+      "subtitle": "Neurogame - Brain-Computer Interfaces, Machine Learning, EEG, Unity",
+      "description": "The Green Shield is a revisited version of Space Invaders where the player can use a BCI to create a barrier and stop the alien invasion. It has been developed using the Unicorn Unity interface for G.Tec Unicorn Hybrid Black and Unicorn Headband devices. It can be played as flat screen version on a Windows PC or in VR version on Meta Quest.",
+      "image": "assets/projects/TheGreenShield/green_shield.png",
+      "tags": ["BCI", "Machine Learning", "EEG", "Unity", "VR"],
+      "year": "2023",
+      "status": "completed",
+      "featured": false,
+      "links": [
+        {
+          "title": "View on Github",
+          "url": "https://github.com/BRomans/TheGreenShield",
+          "icon": "fab fa-github-alt",
+          "type": "github"
+        }
+      ],
+      "videos": [],
+      "category": "neurogame"
+    },
+    {
+      "id": 7,
+      "title": "FLOWer",
+      "subtitle": "Design Concept - Machine Learning, EEG, Figma",
+      "description": "FLOWer is a revisited design of the classic P300 speller developed during BR41N.IO 2023 hackathon that aims at: - Improving accuracy: analysis of the data, preprocessing and training a CNN - Improving UX: design of a more intuitive flower interface for a region-based paradigm - Improving ITR: design a solution that makes use of NLP/LLM to create a predictive adaptive interface. The P300 classifier has been implemented in Python, the interface has been designed in Figma",
+      "image": "assets/projects/FLOWer/flower.png",
+      "tags": ["Design Concept", "Machine Learning", "EEG", "Figma", "P300", "CNN"],
+      "year": "2023",
+      "status": "completed",
+      "featured": false,
+      "links": [
+        {
+          "title": "View on Github",
+          "url": "https://github.com/BRomans/FLOWer",
+          "icon": "fab fa-github-alt",
+          "type": "github"
+        },
+        {
+          "title": "View on Figma",
+          "url": "https://www.figma.com/proto/qRgislCXYSYOzEXIEh3Nli/P300-FLOWer?page-id=0%3A1&node-id=3-341&viewport=934%2C569%2C0.66&t=t2wQ5fwNBRPK4bRV-1&scaling=min-zoom",
+          "icon": "fab fa-figma",
+          "type": "figma"
+        }
+      ],
+      "videos": [],
+      "category": "design"
+    },
+    {
+      "id": 8,
+      "title": "Doc-Hoc",
+      "subtitle": "Design Concept - Machine Learning, EEG, Figma",
+      "description": "Doc-Hoc is a concept for a BCI-powered assistant for language learning based on the OpenBCI ecosystem and designed during the BR41N.IO 2022 hackathon. The idea behind Doc-Hoc is to provide analytics on the level of relaxation and concentration to help the students organising their study and avoid stressful sessions",
+      "image": "assets/projects/DocHoc/dochoc.png",
+      "tags": ["Design Concept", "Machine Learning", "EEG", "Figma", "Language Learning", "BCI"],
+      "year": "2022",
+      "status": "completed",
+      "featured": false,
+      "links": [
+        {
+          "title": "View on Github",
+          "url": "https://github.com/BRomans/Doc-Hoc-A-BCI-powered-Language-Learning-Assistant",
+          "icon": "fab fa-github-alt",
+          "type": "github"
+        },
+        {
+          "title": "View on Figma",
+          "url": "https://www.figma.com/proto/KsBJaYG34b2OvpPREIYYTZ/BCI-Learning-Assistant?t=XDTMvqqPlGFt4jJV-1&scaling=min-zoom&page-id=0%3A1&node-id=15-432",
+          "icon": "fab fa-figma",
+          "type": "figma"
+        }
+      ],
+      "videos": [],
+      "category": "design"
+    },
+    {
+      "id": 9,
+      "title": "Music-Emotion",
+      "subtitle": "Research - Machine Learning, EEG",
+      "description": "I developed a pipeline to process and classify emotional valence and arousal in the brain activity of users listening to music. The pipeline can be the proof of concept for a future recommending system based on emotions.",
+      "image": "assets/projects/Music-Emotion/home.jpg",
+      "tags": ["Research", "Machine Learning", "EEG", "Emotion Recognition", "Music"],
+      "year": "2021",
+      "status": "completed",
+      "featured": false,
+      "links": [
+        {
+          "title": "View on Github",
+          "url": "https://github.com/BRomans/EmotionMusic-Classification",
+          "icon": "fab fa-github-alt",
+          "type": "github"
+        }
+      ],
+      "videos": [],
+      "category": "research"
+    },
+    {
+      "id": 10,
+      "title": "Mindworms",
+      "subtitle": "Neurogame - Brain-Computer Interfaces, Machine Learning, Unity, EEG",
+      "description": "Mindworms is a Worms-like game in Unity, developed to showcase the possibility of using brain activity as an input for a game. In Mindworms, the power of the player's attacks is modulated by the sensorimotor rhythm of the players.",
+      "image": "assets/projects/Mindworms/home.png",
+      "tags": ["BCI", "Machine Learning", "Unity", "EEG", "Neurogame"],
+      "year": "2021",
+      "status": "completed",
+      "featured": false,
+      "links": [
+        {
+          "title": "View on Github",
+          "url": "https://github.com/BRomans/advanced-project-bci",
+          "icon": "fab fa-github-alt",
+          "type": "github"
+        }
+      ],
+      "videos": [],
+      "category": "neurogame"
+    },
+    {
+      "id": 11,
+      "title": "Amuleto, Sincere Pill Dispenser",
+      "subtitle": "Design - Unreal Engine, Illustrator, Figma",
+      "description": "Amuleto is a sincere and courageous pill dispenser designed to create an experience that helps patients cope with their diagnosis, both from the social and health perspectives. The project was the outcome of a Multisensory Design process that aimed at including multiple human senses in the design of a product.",
+      "image": "assets/projects/Sincere Pill Dispenser/3d_render_3.jpg",
+      "tags": ["Design", "Unreal Engine", "Illustrator", "Figma", "Healthcare", "UX"],
+      "year": "2020",
+      "status": "completed",
+      "featured": false,
+      "links": [
+        {
+          "title": "Watch demo",
+          "url": "https://drive.google.com/file/d/1kMdBxILoV84EiW2eQiLBE7yBGL8B4ehl/view?usp=share_link",
+          "icon": "fa fa-video",
+          "type": "video"
+        }
+      ],
+      "videos": [
+        {
+          "title": "Project Demo",
+          "url": "https://drive.google.com/file/d/1kMdBxILoV84EiW2eQiLBE7yBGL8B4ehl/view?usp=share_link",
+          "type": "google_drive"
+        }
+      ],
+      "category": "design"
+    },
+    {
+      "id": 12,
+      "title": "XR Music Lab",
+      "subtitle": "Serious game - Mixed Reality, Unity",
+      "description": "XR Music lab is a creative application for mixing music using two different types of virtual interaction. In the VR app the player learns the basics of music composition by turning on totem beats. In the AR app the player can use an augmented console with leap motion and a webcam to transpose their hands in the virtual environment. Both applications have been built using Unity.",
+      "image": "assets/projects/XRMusicLab/home.png",
+      "tags": ["Mixed Reality", "Unity", "Music", "VR", "AR", "Serious Game"],
+      "year": "2020",
+      "status
