@@ -1,0 +1,80 @@
+{
+  "work": [
+    {
+      "title": "Research & Development",
+      "company": "g.tec Medical Engineering GmbH",
+      "image": "assets/images/avatar.jpg",
+      "period": "Sept 2023 - May 2024",
+      "description": "Development of Brain-Computer Interfaces for Gaming. Worked on real-time signal processing and Unity integration for EEG-based game controllers.",
+      "location": "Schiedlberg, Austria",
+      "tags": ["BCI", "Unity", "C#", "EEG"]
+    },
+    {
+      "title": "Research Engineer",
+      "company": "myBrainTechnologies",
+      "period": "Apr 2022 - Jul 2023",
+      "description": "Research and development of ML pipelines in Python for neuroscience applications. Focused on emotion recognition from EEG signals.",
+      "location": "Paris, France",
+      "tags": ["Python", "Machine Learning", "Signal Processing"]
+    },
+    {
+      "title": "Research Engineer, Intern",
+      "company": "University of Twente - myBrainTechnologies",
+      "period": "Mar 2021 - Sep 2021",
+      "description": "Research project in Python on emotions classification during music listening using EEG data.",
+      "location": "Enschede, The Netherlands",
+      "tags": ["Python", "EEG", "Research"]
+    },
+    {
+      "title": "Research Developer, Intern",
+      "company": "Université Paris-Saclay - LRI, INRIA",
+      "period": "Mar 2020 - Jun 2020",
+      "description": "Research project in Unity on collaborative remote environment using Virtual and Augmented Reality with MRTK.",
+      "location": "Paris, France",
+      "tags": ["Unity", "VR/AR", "MRTK"]
+    },
+    {
+      "title": "Software Engineer",
+      "company": "TAI Solutions",
+      "period": "Feb 2017 - Feb 2019",
+      "description": "Development of Java SpringBoot distributed applications with API REST for several b2b projects.",
+      "location": "Milan, Italy",
+      "tags": ["Java", "SpringBoot", "REST API"]
+    }
+  ],
+  "education": [
+    {
+      "degree": "PhD in Computer Science",
+      "institution": "Università di Trento",
+      "image": "assets/images/avatar.jpg",
+      "period": "2023 - Present",
+      "specialization": "Brain-Computer Interfaces for Gaming",
+      "description": "Research on generalization of Brain-Computer Interfaces, focusing on gaming applications and user experience.",
+      "location": "Trento, Italy"
+    },
+    {
+      "degree": "MSc HCI & Design",
+      "institution": "University of Twente & Université Paris-Saclay",
+      "period": "2019 - 2021",
+      "specialization": "Intelligent Systems & Situated Interaction",
+      "description": "EIT Digital double degree program. Minor in Innovation & Entrepreneurship.",
+      "location": "Netherlands & France"
+    },
+    {
+      "degree": "Master in Cybersecurity",
+      "institution": "Università di Pisa",
+      "period": "2018 - 2019",
+      "specialization": "1st Level Master Course",
+      "description": "Specialized in network security and vulnerability analysis.",
+      "location": "Pisa, Italy"
+    },
+    {
+      "degree": "BSc Computer Science",
+      "institution": "Università di Trento",
+      "period": "2013 - 2017",
+      "specialization": "Minor in Economics and Finance",
+      "description": "Erasmus+ exchange at University of Tallinn, Estonia (2016-2017).",
+      "location": "Trento, Italy"
+    }
+  ]
+}

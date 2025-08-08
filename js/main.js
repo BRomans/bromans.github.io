@@ -127,21 +127,24 @@ function renderCareer(container, data) {
     const workData = data.work || fallback.work;
 
     container.innerHTML = `
-                <h3 style="margin-bottom: 2rem;">Work Experience</h3>
-                <div class="timeline">
-                    ${workData.map(job => `
-                        <div class="timeline-item card">
-                            <h3>${job.title}</h3>
-                            <div class="card-meta">
-                                <span class="card-tag">${job.company}</span>
-                                <span class="card-tag">${job.period}</span>
-                            </div>
-                            <p>${job.description}</p>
-                            ${job.location ? `<p style="font-size: 0.9rem; opacity: 0.7;"><em>${job.location}</em></p>` : ''}
-                        </div>
-                    `).join('')}
+        <h3 style="margin-bottom: 2rem;">Work Experience</h3>
+        <div class="timeline work-timeline">
+            ${workData.map(job => `
+                <div class="timeline-item card">
+                    <div class="timeline-header">
+                        ${job.image ? `<img src="${job.image}" alt="${job.title}" class="timeline-photo">` : ''}
+                        <h3>${job.title}</h3>
+                    </div>
+                    <div class="card-meta">
+                        <span class="card-tag">${job.company}</span>
+                        <span class="card-tag">${job.period}</span>
+                    </div>
+                    <p>${job.description}</p>
+                    ${job.location ? `<p style="font-size: 0.9rem; opacity: 0.7;"><em>${job.location}</em></p>` : ''}
                 </div>
-            `;
+            `).join('')}
+        </div>
+    `;
 }
 
 function renderEducation(container, data) {
@@ -149,21 +152,24 @@ function renderEducation(container, data) {
     const educationData = data.education || fallback.education;
 
     container.innerHTML = `
-                <h3 style="margin-top: 4rem; margin-bottom: 2rem;">Education</h3>
-                <div class="timeline">
-                    ${educationData.map(edu => `
-                        <div class="timeline-item card">
-                            <h3>${edu.degree}</h3>
-                            <div class="card-meta">
-                                <span class="card-tag">${edu.institution}</span>
-                                <span class="card-tag">${edu.period}</span>
-                            </div>
-                            ${edu.specialization ? `<p>${edu.specialization}</p>` : ''}
-                            ${edu.location ? `<p style="font-size: 0.9rem; opacity: 0.7;"><em>${edu.location}</em></p>` : ''}
-                        </div>
-                    `).join('')}
+        <h3 style="margin-top: 4rem; margin-bottom: 2rem;">Education</h3>
+        <div class="timeline education-timeline">
+            ${educationData.map(edu => `
+                <div class="timeline-item card">
+                    <div class="timeline-header">
+                        ${edu.image ? `<img src="${edu.image}" alt="${edu.degree}" class="timeline-photo">` : ''}
+                        <h3>${edu.degree}</h3>
+                    </div>
+                    <div class="card-meta">
+                        <span class="card-tag">${edu.institution}</span>
+                        <span class="card-tag">${edu.period}</span>
+                    </div>
+                    ${edu.specialization ? `<p>${edu.specialization}</p>` : ''}
+                    ${edu.location ? `<p style="font-size: 0.9rem; opacity: 0.7;"><em>${edu.location}</em></p>` : ''}
                 </div>
-            `;
+            `).join('')}
+        </div>
+    `;
 }
 
 // Render Projects content
@@ -371,6 +377,7 @@ function getFallbackData(section) {
                 {
                     degree: "PhD in Computer Science",
                     institution: "Università di Trento",
+                    image: "assets/images/avatar.jpg",
                     period: "2023 - Present",
                     specialization: "Brain-Computer Interfaces for Gaming",
                     location: "Trento, Italy"
