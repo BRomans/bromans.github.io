@@ -198,24 +198,39 @@ function renderPublications(container, data) {
     const publications = data.publications || getFallbackData('publications').publications;
 
     container.innerHTML = `
-                <div class="grid grid-2">
-                    ${publications.map(pub => `
-                        <div class="card">
-                            <h3>${pub.title}</h3>
-                            <div class="card-meta">
-                                <span class="card-tag">${pub.type}</span>
-                                <span class="card-tag">${pub.year}</span>
-                                ${pub.venue ? `<span class="card-tag">${pub.venue}</span>` : ''}
-                            </div>
-                            <p>${pub.abstract || pub.description}</p>
-                            <div style="margin-top: 1rem;">
-                                ${pub.link ? `<a href="${pub.link}" target="_blank" class="btn btn-secondary">Read Paper</a>` : ''}
-                                ${pub.github ? `<a href="${pub.github}" target="_blank" class="btn btn-secondary">View Code</a>` : ''}
-                            </div>
+        <div class="grid grid-2">
+            ${publications.map(pub => `
+                <div class="card publication-card">
+                    ${pub.image ? `
+                        <div class="publication-image">
+                            <img src="${pub.image}" alt="${pub.title}">
                         </div>
-                    `).join('')}
+                    ` : ''}
+                    <div class="publication-content">
+                        <h3>${pub.title}</h3>
+                        ${pub.authors ? `
+                            <p class="publication-authors">${pub.authors.join(', ')}</p>
+                        ` : ''}
+                        <div class="card-meta">
+                            <span class="card-tag">${pub.type}</span>
+                            <span class="card-tag">${pub.year}</span>
+                            ${pub.venue ? `<span class="card-tag">${pub.venue}</span>` : ''}
+                        </div>
+                        <p class="publication-abstract">${pub.abstract || pub.description}</p>
+                        ${pub.keywords ? `
+                            <div class="publication-keywords">
+                                ${pub.keywords.map(keyword => `<span class="keyword-tag">${keyword}</span>`).join('')}
+                            </div>
+                        ` : ''}
+                        <div class="publication-links">
+                            ${pub.link ? `<a href="${pub.link}" target="_blank" class="btn btn-secondary">Read Paper</a>` : ''}
+                            ${pub.github ? `<a href="${pub.github}" target="_blank" class="btn btn-secondary">View Code</a>` : ''}
+                        </div>
+                    </div>
                 </div>
-            `;
+            `).join('')}
+        </div>
+    `;
 }
 
 // Render Art content
@@ -223,26 +238,54 @@ function renderArt(container, data) {
     const installations = data.installations || getFallbackData('art').installations;
 
     container.innerHTML = `
-                <div class="grid grid-3">
-                    ${installations.map(art => `
-                        <div class="card">
-                            ${art.image ? `<img src="${art.image}" alt="${art.title}" class="card-image">` : ''}
-                            ${art.video ? `
-                                <div class="video-container">
-                                    <iframe src="${getVideoEmbed(art.video)}" allowfullscreen></iframe>
-                                </div>
-                            ` : ''}
-                            <h3>${art.title}</h3>
-                            <div class="card-meta">
-                                <span class="card-tag">${art.year}</span>
-                                ${art.venue ? `<span class="card-tag">${art.venue}</span>` : ''}
+        <div class="art-grid">
+            ${installations.map(art => `
+                <div class="art-card">
+                    <div class="art-media">
+                        ${art.image ? `
+                            <img src="${art.image}" alt="${art.title}" class="art-image">
+                        ` : ''}
+                        ${art.video ? `
+                            <div class="play-overlay" onclick="playVideo('${art.video}')">
+                                <svg width="60" height="60" fill="white" viewBox="0 0 24 24">
+                                    <path d="M8 5v14l11-7z"/>
+                                </svg>
                             </div>
-                            <p>${art.description}</p>
-                            ${art.collaborators ? `<p style="font-size: 0.9rem; opacity: 0.7;">Collaborators: ${art.collaborators.join(', ')}</p>` : ''}
+                        ` : ''}
+                    </div>
+                    <div class="art-content">
+                        <div class="art-header">
+                            <h3>${art.title}</h3>
+                            ${art.award ? `<span class="award-badge">🏆 ${art.award}</span>` : ''}
                         </div>
-                    `).join('')}
+                        <div class="art-meta">
+                            <span class="meta-item">${art.type}</span>
+                            <span class="meta-item">${art.year}</span>
+                        </div>
+                        ${art.venue ? `<p class="art-venue"><strong>${art.venue}</strong></p>` : ''}
+                        <p class="art-description">${art.description}</p>
+                        
+                        ${art.technologies ? `
+                            <div class="art-tech">
+                                ${art.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
+                            </div>
+                        ` : ''}
+                        
+                        ${art.collaborators ? `
+                            <p class="art-collaborators">
+                                <strong>Collaborators:</strong> ${art.collaborators.join(', ')}
+                            </p>
+                        ` : ''}
+                        
+                        <div class="art-links">
+                            ${art.github ? `<a href="${art.github}" target="_blank" class="btn btn-secondary">View Code</a>` : ''}
+                            ${art.video ? `<a href="${art.video}" target="_blank" class="btn btn-secondary">Watch Video</a>` : ''}
+                        </div>
+                    </div>
                 </div>
-            `;
+            `).join('')}
+        </div>
+    `;
 }
 
 // Render Music content

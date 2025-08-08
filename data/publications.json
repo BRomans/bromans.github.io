@@ -1,154 +1,63 @@
 {
-  "conference": [
+  "publications": [
     {
-      "id": 1,
       "title": "NeuroWizard: Investigating the Effect of Gamification on BCI Performance among Adult Users with ADHD",
-      "authors": ["Michele Romani", "et al."],
-      "venue": "Conference Proceedings",
+      "authors": ["M. Romani", "et al."],
+      "type": "Conference Paper",
+      "venue": "CHI 2024",
       "year": "2024",
-      "status": "published",
-      "abstract": "Brain-Computer Interfaces (BCI) are systems that allow a user to transmit commands to a computer by using their brain activity. BCI systems are utilized in neurofeedback training interventions for people with Attention Deficit Hyperactivity Disorder (ADHD) to improve focused attention. However, repetitive training sessions can be dull or non-engaging for users. Gamified environments aim to enhance user motivation for BCI training, but for users with ADHD, they may also introduce distractions that could negatively impact task performance. This study explored how individuals with ADHD interacted with a gamified BCI task compared to a non-gamified standard one. In a within-subjects experiment, nine participants conducted an ERP-based BCI selection task with three difficulty levels in both \"Gamified\" and \"Standard\" environments. The two environments were compared in terms of user performance on the BCI task and user experience, measured by the Game Experience Questionnaire. The results indicated no difference in the user's BCI accuracy between the two conditions, however, the Gamified environment scored higher on Sensory and Imaginative Immersion while scoring lower on the Negative Affect construct. Additionally, in the post-experiment interview, the majority of participants indicated that they could focus better and hence preferred the gamified task. These preliminary findings are relevant for designing neurofeedback games for individuals with ADHD.",
-      "tags": ["BCI", "ADHD", "Gamification", "Neurofeedback", "ERP"],
-      "links": [
-        {
-          "title": "Read Now",
-          "url": "#",
-          "icon": "fas fa-external-link-alt",
-          "type": "paper"
-        },
-        {
-          "title": "Github",
-          "url": "#",
-          "icon": "fas fa-external-link-alt",
-          "type": "github"
-        }
-      ],
-      "doi": null,
-      "pdf_url": null,
-      "bibtex": null
+      "image": "assets/publications/neurowizard.png",
+      "abstract": "Brain-Computer Interfaces (BCI) are systems that allow users to transmit commands to computers using brain activity. This study explored how individuals with ADHD interacted with a gamified BCI task compared to a non-gamified standard one. Results indicated that the Gamified environment scored higher on Sensory and Imaginative Immersion while scoring lower on Negative Affect.",
+      "link": "",
+      "github": "",
+      "keywords": ["BCI", "ADHD", "Gamification", "User Experience"]
     },
     {
-      "id": 2,
       "title": "BCHJam: a Brain-Computer Music Interface for Live Music Performance in Shared Mixed Reality Environments",
-      "authors": ["Michele Romani", "et al."],
-      "venue": "IEEE Conference",
+      "authors": ["M. Romani", "L. Turchet", "et al."],
+      "type": "Conference Paper",
+      "venue": "IEEE Internet of Things",
       "year": "2024",
-      "status": "published",
-      "abstract": "To date, the integration of brain-computer interfaces and mixed reality headsets in Internet of Musical Things (IoMusT) performance ecosystems has received remarkably little attention from the research community. To bridge this gap, in this paper, we present BCHJam: an IoMusT-based performance ecosystem composed of performers, audience members, brain- computer interfaces, smart musical instruments, and mixed reality headsets. In BCHJam, one or more musicians are fitted with a brain-computer music interface (BCMI) giving them the possibility to actively or passively control the processing of their instrument's audio. Moreover, the BCMI's signal controls mixed reality visual effects displayed in XR headsets worn by audience members. All the components of BCHJam communicate through a Wi-Fi network via Open Sound Control messages. We refined the system through a series of test performance sessions, resulting in the creation of a signal quality filter that improved the musician's experience, along with a tuning of control parameters. The developed ecosystem was validated by realizing a musical performance. We provide a critical reflection on the achieved results and discuss the lessons learned while developing this first of its kind IoMusT performance ecosystem.",
-      "tags": ["BCI", "Mixed Reality", "IoMusT", "Performance", "Music Interface"],
-      "links": [
-        {
-          "title": "Read Now",
-          "url": "https://ieeexplore.ieee.org/document/10704087",
-          "icon": "fas fa-external-link-alt",
-          "type": "paper"
-        },
-        {
-          "title": "Github",
-          "url": "https://github.com/BRomans/BCHJam",
-          "icon": "fas fa-external-link-alt",
-          "type": "github"
-        }
-      ],
-      "doi": "10.1109/...",
-      "pdf_url": "https://ieeexplore.ieee.org/document/10704087",
-      "bibtex": null
-    }
-  ],
-  "journal": [
+      "image": "assets/publications/bchjam.png",
+      "abstract": "We present BCHJam: an IoMusT-based performance ecosystem composed of performers, audience members, brain-computer interfaces, smart musical instruments, and mixed reality headsets. The BCMI signal controls mixed reality visual effects displayed in XR headsets worn by audience members.",
+      "link": "https://ieeexplore.ieee.org/document/10704087",
+      "github": "https://github.com/BRomans/BCHJam",
+      "keywords": ["BCI", "IoMusT", "Mixed Reality", "Live Performance"]
+    },
     {
-      "id": 3,
       "title": "Hybrid Harmony: A Multi-Person Neurofeedback Application for Interpersonal Synchrony",
-      "authors": ["Michele Romani", "et al."],
+      "authors": ["T. Beelen", "M. Romani", "et al."],
+      "type": "Journal Article",
       "venue": "Frontiers in Neuroergonomics",
       "year": "2021",
-      "status": "published",
-      "abstract": "Recent years have seen a dramatic increase in studies measuring brain activity, physiological responses, and/or movement data from multiple individuals during social interaction. For example, so-called \"hyperscanning\" research has demonstrated that brain activity may become synchronized across people as a function of a range of factors. Such findings have implications for understanding the neural mechanisms underlying social interaction, and suggest possibilities for novel neurotechnology applications that could augment human social connection. Here we present Hybrid Harmony, a real-time multi-person neurofeedback application designed to promote interpersonal synchrony. The application measures real-time electroencephalographic (EEG) data from two users simultaneously and provides visual feedback that encourages users to reach a state of neural synchrony...",
-      "tags": ["Neurofeedback", "Interpersonal Synchrony", "EEG", "Hyperscanning", "Social Interaction"],
-      "links": [
-        {
-          "title": "Read Now",
-          "url": "https://www.frontiersin.org/articles/10.3389/fnrgo.2021.687108/full",
-          "icon": "fas fa-external-link-alt",
-          "type": "paper"
-        }
-      ],
-      "doi": "10.3389/fnrgo.2021.687108",
-      "pdf_url": "https://www.frontiersin.org/articles/10.3389/fnrgo.2021.687108/pdf",
-      "bibtex": null,
-      "impact_factor": null,
-      "citations": null
-    }
-  ],
-  "unpublished": [
-    {
-      "id": 4,
-      "title": "Music-Emotion: Towards real-time recognition of affective states using a wearable Brain-Computer Interface",
-      "authors": ["Michele Romani"],
-      "venue": "Master's Thesis",
-      "year": "2021",
-      "status": "unpublished",
-      "abstract": "This research set out to investigate the feasibility of performing Emotion-Recognition using Melomind, a wearable neural interface manufactured by myBrainTechnologies. Melomind is capable of recording EEG signals, that can be processed using machine learning algorithms in the form of a classification task of the emotional dimensions of valence and arousal. The research was conducted in collaboration with the University of Twente and myBrainTechnologies, with the goal of developing a pipeline that could be integrated into their existing neurofeedback applications. The study involved the collection of EEG data from participants listening to music designed to evoke specific emotional states, followed by the development and validation of machine learning models for emotion classification.",
-      "tags": ["Emotion Recognition", "EEG", "Machine Learning", "Music", "Wearable BCI"],
-      "links": [
-        {
-          "title": "Read Now",
-          "url": "https://drive.google.com/file/d/1_mDoYk-ZotFWqijxp46Omp6hSfjMEnBL/view",
-          "icon": "fas fa-external-link-alt",
-          "type": "paper"
-        },
-        {
-          "title": "Github",
-          "url": "https://github.com/BRomans/EmotionMusic-Classification",
-          "icon": "fas fa-external-link-alt",
-          "type": "github"
-        }
-      ],
-      "doi": null,
-      "pdf_url": "https://drive.google.com/file/d/1_mDoYk-ZotFWqijxp46Omp6hSfjMEnBL/view",
-      "bibtex": null
+      "image": "assets/publications/hybrid_harmony.png",
+      "abstract": "Recent years have seen a dramatic increase in studies measuring brain activity, physiological responses, and/or movement data from multiple individuals during social interaction. So-called 'hyperscanning' research has demonstrated that brain activity may become synchronized across people as a function of various factors.",
+      "link": "https://www.frontiersin.org/articles/10.3389/fnrgo.2021.687108/full",
+      "keywords": ["Hyperscanning", "Neurofeedback", "Social Interaction", "EEG"]
     },
     {
-      "id": 5,
+      "title": "Music-Emotion: Towards real-time recognition of affective states using a wearable Brain-Computer Interface",
+      "authors": ["M. Romani"],
+      "type": "Thesis",
+      "venue": "University of Twente",
+      "year": "2021",
+      "image": "assets/publications/music_emotion.png",
+      "abstract": "This research investigates the feasibility of performing Emotion-Recognition using Melomind, a wearable neural interface. EEG signals are processed using machine learning algorithms for classification of emotional dimensions of valence and arousal.",
+      "link": "https://drive.google.com/file/d/1_mDoYk-ZotFWqijxp46Omp6hSfjMEnBL/view",
+      "github": "https://github.com/BRomans/EmotionMusic-Classification",
+      "keywords": ["EEG", "Emotion Recognition", "Machine Learning", "Music"]
+    },
+    {
       "title": "AR Notes: Augmenting Collaborative Tools",
-      "authors": ["Michele Romani", "et al."],
-      "venue": "Research Project Report",
+      "authors": ["M. Romani", "et al."],
+      "type": "Research Report",
+      "venue": "Université Paris-Saclay",
       "year": "2020",
-      "status": "unpublished",
-      "abstract": "Over the last decades of HCI research, it has become clear that humans interact more naturally when in presence of a tangible interface that recalls them of a functionality they already know from a previous non-digital experience. However, digitalization and automation of many tools we use on a daily basis have made complicated integrating tangibles and software in a seamless way. This research project explores the integration of Augmented Reality with collaborative tools, focusing on the design and implementation of AR Notes - a system that enhances traditional note-taking and collaboration through spatial computing technologies. The project investigates how AR can bridge the gap between physical and digital interaction paradigms in collaborative environments.",
-      "tags": ["Augmented Reality", "Collaboration", "HCI", "Tangible Interface", "Spatial Computing"],
-      "links": [
-        {
-          "title": "Read Now",
-          "url": "https://drive.google.com/file/d/1xY7Rubdnqq3JtsOcimV8eJThWwOrQuvu/view?usp=share_link",
-          "icon": "fas fa-external-link-alt",
-          "type": "paper"
-        },
-        {
-          "title": "Design Report",
-          "url": "https://drive.google.com/file/d/16qVUXRrmSPaBCkPtO075BQSVwSe6yyRh/view?usp=share_link",
-          "icon": "fas fa-external-link-alt",
-          "type": "report"
-        },
-        {
-          "title": "Github",
-          "url": "https://github.com/BRomans/EIT_AR_Notes",
-          "icon": "fas fa-external-link-alt",
-          "type": "github"
-        }
-      ],
-      "doi": null,
-      "pdf_url": "https://drive.google.com/file/d/1xY7Rubdnqq3JtsOcimV8eJThWwOrQuvu/view?usp=share_link",
-      "bibtex": null
+      "image": "assets/publications/ar_notes.png",
+      "abstract": "Over decades of HCI research, humans interact more naturally with tangible interfaces recalling familiar functionalities. This work explores integrating tangibles and software in augmented reality collaborative environments.",
+      "link": "https://drive.google.com/file/d/1xY7Rubdnqq3JtsOcimV8eJThWwOrQuvu/view",
+      "github": "https://github.com/BRomans/EIT_AR_Notes",
+      "keywords": ["AR", "HCI", "Collaboration", "Tangible Interfaces"]
     }
-  ],
-  "stats": {
-    "total_publications": 5,
-    "conference_papers": 2,
-    "journal_papers": 1,
-    "unpublished": 2,
-    "h_index": null,
-    "total_citations": null,
-    "years_active": "2020-2024"
-  }
+  ]
 }
