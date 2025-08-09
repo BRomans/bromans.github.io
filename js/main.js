@@ -97,10 +97,10 @@ function renderContent(section, data) {
             renderAbout(container, data);
             break;
         case 'career':
-            renderCareer(container, data);
+            //renderCareer(container, data);
             break;
         case 'education':
-            renderEducation(container, data);
+            //renderEducation(container, data);
             break
         case 'projects':
             renderProjects(container, data);
@@ -109,10 +109,10 @@ function renderContent(section, data) {
             renderPublications(container, data).then(r => {});
             break;
         case 'art':
-            renderArt(container, data);
+            //renderArt(container, data);
             break;
         case 'music':
-            renderMusic(container, data);
+            //renderMusic(container, data);
             break;
     }
 }
