@@ -40,4 +40,9 @@ class TypeWriter {
 
 // Initialize on hero subtitle
 const subtitles = ['Creative Technologist', 'Machine Learning Researcher', 'BCI Developer', 'Electronic Music Producer'];
-new TypeWriter(document.querySelector('.hero-subtitle'), subtitles);
+document.addEventListener('DOMContentLoaded', function() {
+    const heroSubtitle = document.querySelector('.hero-subtitle');
+    if (heroSubtitle) {
+        new TypeWriter(heroSubtitle, subtitles);
+    }
+});
