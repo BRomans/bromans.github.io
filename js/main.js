@@ -106,7 +106,7 @@ function renderContent(section, data) {
             renderProjects(container, data);
             break;
         case 'publications':
-            renderPublications(container, data);
+            renderPublications(container, data).then(r => {});
             break;
         case 'art':
             renderArt(container, data);
@@ -190,67 +190,6 @@ function renderEducation(container, data) {
                     </div>
                     ${edu.specialization ? `<p>${edu.specialization}</p>` : ''}
                     ${edu.location ? `<p style="font-size: 0.9rem; opacity: 0.7;"><em>${edu.location}</em></p>` : ''}
-                </div>
-            `).join('')}
-        </div>
-    `;
-}
-
-// Render Projects content
-function renderProjects(container, data) {
-    const projects = data.projects || getFallbackData('projects').projects;
-
-    container.innerHTML = `
-                <div class="grid grid-3">
-                    ${projects.map((project, index) => `
-                        <div class="card" onclick="showProjectDetails(${index})">
-                            ${project.image ? `<img src="${project.image}" alt="${project.title}" class="card-image">` : ''}
-                            <h3>${project.title}</h3>
-                            <div class="card-meta">
-                                ${project.tags ? project.tags.map(tag => `<span class="card-tag">${tag}</span>`).join('') : ''}
-                            </div>
-                            <p>${project.description}</p>
-                            ${project.award ? `<p style="color: var(--accent); font-weight: 600;">🏆 ${project.award}</p>` : ''}
-                        </div>
-                    `).join('')}
-                </div>
-            `;
-}
-
-// Render Publications content
-function renderPublicationsOld(container, data) {
-    const publications = data.publications || getFallbackData('publications').publications;
-
-    container.innerHTML = `
-        <div class="grid grid-2">
-            ${publications.map(pub => `
-                <div class="card publication-card">
-                    ${pub.image ? `
-                        <div class="publication-image">
-                            <img src="${pub.image}" alt="${pub.title}">
-                        </div>
-                    ` : ''}
-                    <div class="publication-content">
-                        <h3>${pub.title}</h3>
-                        ${pub.authors ? `
-                            <p class="publication-authors">${pub.authors.join(', ')}</p>
-                        ` : ''}
-                        <div class="card-meta">
-                            <span class="card-tag">${pub.type}</span>
-                            <span class="card-tag">${pub.year}</span>
-                            ${pub.venue ? `<span class="card-tag">${pub.venue}</span>` : ''}
-                        </div>
-                        <p class="publication-abstract">${pub.abstract || pub.description}</p>
-                        ${pub.keywords ? `
-                            <div class="publication-keywords">
-                                ${pub.keywords.map(keyword => `<span class="keyword-tag">${keyword}</span>`).join('')}
-                            </div>
-                        ` : ''}
-                        <div class="publication-links">
-                            ${pub.link ? `<a href="${pub.link}" target="_blank" class="btn btn-secondary">Read Paper</a>` : ''}
-                            ${pub.github ? `<a href="${pub.github}" target="_blank" class="btn btn-secondary">View Code</a>` : ''}
-                        </div>
-                    </div>
                 </div>
             `).join('')}
         </div>
@@ -406,41 +345,7 @@ function renderMusic(container, data) {
     `;
 }
 
-// Show project details in modal
-function showProjectDetails(index) {
-    const projects = contentData.projects?.projects || getFallbackData('projects').projects;
-    const project = projects[index];
 
-    const modal = document.getElementById('projectModal');
-    const modalBody = document.getElementById('modalBody');
-
-    modalBody.innerHTML = `
-                <h2>${project.title}</h2>
-                ${project.video ? `
-                    <div class="video-container">
-                        <iframe src="${getVideoEmbed(project.video)}" allowfullscreen></iframe>
-                    </div>
-                ` : `<img src="${project.image}" alt="${project.title}" style="width: 100%; border-radius: 12px; margin: 1rem 0;">`}
-                
-                <div class="card-meta" style="margin: 1rem 0;">
-                    ${project.tags ? project.tags.map(tag => `<span class="card-tag">${tag}</span>`).join('') : ''}
-                </div>
-                ${project.award ? `<p style="color: var(--accent); font-weight: 600;">🏆 ${project.award}</p>` : ''}
-                <p>${project.fullDescription || project.description}</p>
-                <div style="margin-top: 2rem;">
-                    ${project.github ? `<a href="${project.github}" target="_blank" class="btn btn-primary">View on GitHub</a>` : ''}
-                    ${project.demo ? `<a href="${project.demo}" target="_blank" class="btn btn-secondary">Live Demo</a>` : ''}
-                    ${project.paper ? `<a href="${project.paper}" target="_blank" class="btn btn-secondary">Read Paper</a>` : ''}
-                </div>
-            `;
-
-    modal.classList.add('active');
-}
-
-// Close modal
-function closeModal() {
-    document.getElementById('projectModal').classList.remove('active');
-}
 
 // Convert video URLs to embed format
 function getVideoEmbed(url) {
