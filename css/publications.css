@@ -56,7 +56,7 @@
     display: flex;
     gap: 1.5rem;
     padding: 1.5rem;
-    background: rgba(30, 41, 59, 0.5);
+    background: rgba(30, 41, 59, 0.2);
     border-radius: 16px;
     border: 1px solid var(--border-color);
     transition: all 0.3s ease;
@@ -100,7 +100,7 @@
 
 .publication-meta span {
     padding: 0.25rem 0.75rem;
-    background: rgba(99, 102, 241, 0.1);
+    background: var(--dark-lighter);
     border-radius: 20px;
     font-size: 0.85rem;
 }

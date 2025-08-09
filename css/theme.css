@@ -1,0 +1,308 @@
+
+/* Dark/Light theme toggle https://coolors.co/palettes/trending */
+:root {
+    /* Dark theme (default) */
+    --primary: #6366f1;
+    --primary-dark: #4f46e5;
+    --secondary: #ec4899;
+    --accent: #14b8a6;
+    --dark: #0f172a;
+    --dark-lighter: #1e293b;
+    --light: #f8fafc;
+    --text: #cbd5e1;
+    --text-bright: #f1f5f9;
+    --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    --card-bg: rgba(30, 41, 59, 0.5);
+    --border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="light"] {
+    --primary: #606c38;
+    --primary-dark: #283618;
+    --secondary: #dda15e;
+    --accent: #bc6c25;
+    --dark: #ffffff;
+    --dark-lighter: #fefae0;
+    --light: #fefae0;
+    --text: #475569;
+    --text-bright: #0f172a;
+    --card-bg: rgba(255, 255, 177, 0.9);
+    --border-color: rgba(0, 0, 0, 0.1);
+    --gradient-1: linear-gradient(135deg, #606c38 0%, #283618 100%);
+    --gradient-2: linear-gradient(135deg, #fefae0 0%, #dda15e 100%);
+    --gradient-3: linear-gradient(135deg, #bc6c25 0%, #dda15e 100%);
+}
+
+/* Theme switch styles */
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.theme-switch {
+    position: relative;
+}
+
+.theme-toggle-input {
+    display: none;
+}
+
+.theme-toggle-label {
+    width: 60px;
+    height: 30px;
+    background: var(--border-color);
+    color: var(--text-bright);
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+    cursor: pointer;
+    position: relative;
+    transition: background 0.3s ease;
+}
+
+.theme-toggle-label::before {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--text-bright);
+    transition: transform 0.3s ease;
+    transform: translateX(0);
+}
+
+.theme-toggle-input:checked + .theme-toggle-label::before {
+    transform: translateX(30px);
+}
+
+.theme-toggle-input:checked + .theme-toggle-label {
+    background: var(--primary);
+}
+
+.sun-icon, .moon-icon {
+    z-index: 1;
+    transition: opacity 0.3s ease;
+}
+
+.theme-toggle-input:checked + .theme-toggle-label .sun-icon {
+    opacity: 1;
+}
+
+.theme-toggle-input:checked + .theme-toggle-label .moon-icon {
+    opacity: 0.3;
+}
+
+.theme-toggle-input:not(:checked) + .theme-toggle-label .sun-icon {
+    opacity: 0.3;
+}
+
+.theme-toggle-input:not(:checked) + .theme-toggle-label .moon-icon {
+    opacity: 1;
+}
+
+/* Light mode specific adjustments */
+[data-theme="light"] .bg-animation {
+    opacity: 0.1;
+}
+
+[data-theme="light"] .gradient-orb {
+    filter: blur(100px);
+}
+
+[data-theme="light"] nav {
+    background: rgba(255, 255, 255, 0.8);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Light theme animations */
+/* Hide geometric shapes in dark mode */
+.geometric-bg {
+    display: none;
+}
+
+/* Show geometric shapes in light mode, hide orbs */
+[data-theme="light"] .gradient-orb {
+    display: none;
+}
+
+[data-theme="light"] .geometric-bg {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+[data-theme="light"] .geo-shape {
+    position: absolute;
+    opacity: 0.1; /* Increased from 0.05 */
+    animation: float-geo 20s infinite ease-in-out;
+}
+
+.geo-shape {
+    position: absolute;
+    opacity: 0.05;
+    animation: float-geo 20s infinite ease-in-out;
+}
+
+
+/* Triangle */
+.geo-shape.triangle {
+    width: 0;
+    height: 0;
+    border-left: 150px solid transparent;
+    border-right: 150px solid transparent;
+    border-bottom: 260px solid;
+    border-bottom-color: var(--primary);
+    top: 10%;
+    left: 15%;
+    animation-delay: 0s;
+    transform: rotate(15deg);
+    opacity: 1
+}
+
+/* Hexagon */
+.geo-shape.hexagon {
+    width: 200px;
+    height: 110px;
+    background: var(--secondary);
+    position: relative;
+    top: 40%;
+    right: 10%;
+    animation-delay: 3s;
+    opacity: 1
+}
+
+.geo-shape.hexagon:before,
+.geo-shape.hexagon:after {
+    content: "";
+    position: absolute;
+    width: 0;
+    border-left: 100px solid transparent;
+    border-right: 100px solid transparent;
+}
+
+.geo-shape.hexagon:before {
+    bottom: 100%;
+    border-bottom: 55px solid var(--secondary);
+}
+
+.geo-shape.hexagon:after {
+    top: 100%;
+    border-top: 55px solid var(--secondary);
+}
+
+/* Square */
+.geo-shape.square {
+    width: 250px;
+    height: 250px;
+    background: linear-gradient(45deg, var(--primary), var(--accent));
+    bottom: 20%;
+    left: 30%;
+    transform: rotate(45deg);
+    animation-delay: 6s;
+    opacity: 1
+}
+
+/* Circle with gradient border */
+.geo-shape.circle {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: transparent;
+    border: 20px solid;
+    border-color: var(--accent);
+    top: 60%;
+    left: 60%;
+    animation-delay: 9s;
+    opacity: 1
+}
+
+/* Diamond */
+.geo-shape.diamond {
+    width: 150px;
+    height: 150px;
+    background: linear-gradient(135deg, var(--secondary), var(--primary));
+    transform: rotate(45deg);
+    top: 25%;
+    right: 25%;
+    animation-delay: 12s;
+    opacity: 1
+}
+
+/* Unique floating animation for geometric shapes */
+@keyframes float-geo {
+    0%, 100% {
+        transform: translate(0, 0) rotate(0deg) scale(1);
+    }
+    20% {
+        transform: translate(30px, -40px) rotate(90deg) scale(1.1);
+    }
+    40% {
+        transform: translate(-40px, 20px) rotate(180deg) scale(0.9);
+    }
+    60% {
+        transform: translate(20px, 30px) rotate(270deg) scale(1.05);
+    }
+    80% {
+        transform: translate(-30px, -20px) rotate(360deg) scale(0.95);
+    }
+}
+
+/* Light theme specific - add subtle grid pattern */
+[data-theme="light"] body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        linear-gradient(rgba(99, 102, 241, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Add some paper-like texture to light mode cards */
+[data-theme="light"] .card {
+    background: linear-gradient(135deg,
+        rgba(255, 255, 255, 0.95),
+        rgba(249, 250, 251, 0.95));
+    box-shadow:
+        0 1px 3px rgba(0, 0, 0, 0.05),
+        0 10px 40px rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .card:hover {
+    box-shadow:
+        0 1px 3px rgba(0, 0, 0, 0.08),
+        0 20px 60px rgba(0, 0, 0, 0.12);
+}
+
+/* Animated accent lines for light theme */
+[data-theme="light"] .hero::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -100%;
+    width: 200%;
+    height: 2px;
+    background: linear-gradient(90deg,
+        transparent,
+        var(--primary),
+        transparent);
+    animation: scan-line 8s linear infinite;
+    opacity: 0.3;
+}
+
+@keyframes scan-line {
+    0% { transform: translateY(-200px) translateX(-50%); }
+    100% { transform: translateY(200px) translateX(50%); }
+}
