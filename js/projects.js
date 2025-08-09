@@ -15,12 +15,15 @@ function renderProjects(container, data) {
             ${projects.map((project, index) => `
                 <div class="card project-card" data-tags="${(project.tags || []).join(',')}" onclick="showProjectDetails(${index})">
                      ${project.image ? `<img src="${project.image}" alt="${project.title}" class="card-image">` : ''}
-                            <h3>${project.title}</h3>
-                            <div class="card-meta">
-                                ${project.tags ? project.tags.map(tag => `<span class="card-tag">${tag}</span>`).join('') : ''}
-                            </div>
-                            <p>${project.description}</p>
-                            ${project.award ? `<p style="color: var(--accent); font-weight: 600;">🏆 ${project.award}</p>` : ''}
+                     <div class="card-title">
+                                <h3>${project.title}</h3>
+                                <h4>(${project.year})</h4>
+                     </div>
+                    <div class="card-meta">
+                        ${project.tags ? project.tags.map(tag => `<span class="card-tag">${tag}</span>`).join('') : ''}
+                    </div>
+                    <p>${project.description}</p>
+                    ${project.award ? `<p style="color: var(--accent); font-weight: 600;">🏆 ${project.award}</p>` : ''}
                 </div>
             `).join('')}
         </div>

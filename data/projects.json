@@ -73,7 +73,7 @@
       "title": "Music-Emotion",
       "description": "Real-time emotion recognition from EEG during music listening.",
       "fullDescription": "Pipeline to process and classify emotional valence and arousal in brain activity of users listening to music. Proof of concept for emotion-based music recommendation systems.",
-      "image": "assets/projects/Music-Emotion/home.jpg",
+      "image": "assets/projects/Music-Emotion/me.jpg",
       "tags": ["Machine Learning", "EEG", "Python", "Signal Processing"],
       "year": "2021",
       "github": "https://github.com/BRomans/EmotionMusic-Classification"
@@ -82,7 +82,7 @@
       "title": "Mindworms",
       "description": "Worms-like game where attack power is modulated by brain activity.",
       "fullDescription": "Mindworms is a Worms-like game in Unity showcasing brain activity as game input. The power of player attacks is modulated by the sensorimotor rhythm of the players.",
-      "image": "assets/projects/Mindworms/home.png",
+      "image": "assets/projects/Mindworms/mindworms.png",
       "tags": ["BCI", "Unity", "Gaming", "EEG", "Machine Learning"],
       "year": "2021",
       "github": "https://github.com/BRomans/advanced-project-bci"
@@ -91,7 +91,7 @@
       "title": "XR Music Lab",
       "description": "Mixed reality application for music composition and mixing.",
       "fullDescription": "Creative application for mixing music using VR and AR. In VR, players learn music composition with totem beats. In AR, players use an augmented console with Leap Motion to transpose hands into virtual environment.",
-      "image": "assets/projects/XRMusicLab/home.png",
+      "image": "assets/projects/XRMusicLab/xrmusiclab.png",
       "tags": ["Mixed Reality", "Unity", "Music", "Leap Motion"],
       "year": "2020",
       "github": "https://github.com/BRomans/EIT_XR_Music_Lab",
