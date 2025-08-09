@@ -1392,11 +1392,18 @@ body {
     overflow: hidden;
 }
 
+[data-theme="light"] .geo-shape {
+    position: absolute;
+    opacity: 0.1; /* Increased from 0.05 */
+    animation: float-geo 20s infinite ease-in-out;
+}
+
 .geo-shape {
     position: absolute;
     opacity: 0.05;
     animation: float-geo 20s infinite ease-in-out;
 }
+
 
 /* Triangle */
 .geo-shape.triangle {
@@ -1410,6 +1417,7 @@ body {
     left: 15%;
     animation-delay: 0s;
     transform: rotate(15deg);
+    opacity: 1
 }
 
 /* Hexagon */
@@ -1421,6 +1429,7 @@ body {
     top: 40%;
     right: 10%;
     animation-delay: 3s;
+    opacity: 1
 }
 
 .geo-shape.hexagon:before,
@@ -1451,6 +1460,7 @@ body {
     left: 30%;
     transform: rotate(45deg);
     animation-delay: 6s;
+    opacity: 1
 }
 
 /* Circle with gradient border */
@@ -1464,6 +1474,7 @@ body {
     top: 60%;
     left: 60%;
     animation-delay: 9s;
+    opacity: 1
 }
 
 /* Diamond */
@@ -1475,6 +1486,7 @@ body {
     top: 25%;
     right: 25%;
     animation-delay: 12s;
+    opacity: 1
 }
 
 /* Unique floating animation for geometric shapes */
