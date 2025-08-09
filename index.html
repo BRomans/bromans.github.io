@@ -12,6 +12,7 @@
           rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
     <link href="css/trail.css" rel="stylesheet">
+    <link href="css/form.css" rel="stylesheet">
 
 
 </head>
@@ -103,8 +104,8 @@
                 <button class="btn btn-primary" onclick="navigateToView('projects')">
                     Explore Projects
                 </button>
-                <button class="btn btn-secondary" onclick="navigateToView('about')">
-                    Learn More
+                <button class="btn btn-secondary" onclick="openContactModal()">
+                    Get in Touch
                 </button>
             </div>
         </div>
@@ -217,8 +218,63 @@
     </div>
 </div>
 
+<!-- Contact Modal -->
+<!-- Contact Form Modal -->
+<div id="contactModal" class="modal">
+    <div class="modal-content contact-modal-content">
+        <button class="modal-close" onclick="closeContactModal()">&times;</button>
+        <div class="contact-header">
+            <h2>Let's Connect</h2>
+            <p>Have a project in mind or want to collaborate? I'd love to hear from you!</p>
+        </div>
+        <form id="contactForm" class="contact-form">
+            <div class="form-row">
+                <div class="form-group">
+                    <input type="text" id="contactName" placeholder=" " required>
+                    <label for="contactName">Your Name</label>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="contactEmail" placeholder=" " required>
+                    <label for="contactEmail">Your Email</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <select id="contactSubject" required>
+                    <option value="">Select a topic...</option>
+                    <option value="collaboration">Research Collaboration</option>
+                    <option value="project">Project Inquiry</option>
+                    <option value="music">Music/DJ Booking</option>
+                    <option value="speaking">Speaking Engagement</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <textarea id="contactMessage" placeholder=" " rows="5" required></textarea>
+                <label for="contactMessage">Your Message</label>
+            </div>
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">
+                    <span class="btn-text">Send Message</span>
+                    <span class="btn-loading" style="display: none;">
+                        <span class="spinner-small"></span> Sending...
+                    </span>
+                </button>
+                <button type="button" class="btn btn-secondary" onclick="closeContactModal()">Cancel</button>
+            </div>
+        </form>
+        <div class="form-success" style="display: none;">
+            <svg width="60" height="60" fill="var(--accent)" viewBox="0 0 24 24">
+                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+            </svg>
+            <h3>Message Sent!</h3>
+            <p>Thank you for reaching out. I'll get back to you soon.</p>
+        </div>
+    </div>
+</div>
+
 <script type="text/javascript" src="js/main.js"></script>
 <script type="text/javascript" src="js/typewriter.js"></script>
 <script type="text/javascript" src="js/trail.js"></script>
+<script type="text/javascript" src="js/form.js"></script>
 </body>
 </html>
