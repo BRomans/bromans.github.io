@@ -101,7 +101,7 @@ function renderContent(section, data) {
             break;
         case 'education':
             //renderEducation(container, data);
-            break
+            break;
         case 'projects':
             renderProjects(container, data);
             break;
