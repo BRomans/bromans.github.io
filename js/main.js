@@ -1,3 +1,4 @@
+
 // Data storage
 let contentData = {
     about: null,
@@ -14,6 +15,11 @@ function initTheme() {
     document.documentElement.setAttribute('data-theme', savedTheme);
     document.getElementById('themeToggle').checked = savedTheme === 'light';
 }
+
+window.addEventListener('scroll', () => {
+    const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+    document.querySelector('.scroll-progress').style.width = scrolled + '%';
+});
 
 function toggleTheme() {
     const currentTheme = document.documentElement.getAttribute('data-theme');
@@ -212,7 +218,7 @@ function renderProjects(container, data) {
 }
 
 // Render Publications content
-function renderPublications(container, data) {
+function renderPublicationsOld(container, data) {
     const publications = data.publications || getFallbackData('publications').publications;
 
     container.innerHTML = `
@@ -410,12 +416,12 @@ function showProjectDetails(index) {
 
     modalBody.innerHTML = `
                 <h2>${project.title}</h2>
-                ${project.image ? `<img src="${project.image}" alt="${project.title}" style="width: 100%; border-radius: 12px; margin: 1rem 0;">` : ''}
                 ${project.video ? `
                     <div class="video-container">
                         <iframe src="${getVideoEmbed(project.video)}" allowfullscreen></iframe>
                     </div>
-                ` : ''}
+                ` : `<img src="${project.image}" alt="${project.title}" style="width: 100%; border-radius: 12px; margin: 1rem 0;">`}
+                
                 <div class="card-meta" style="margin: 1rem 0;">
                     ${project.tags ? project.tags.map(tag => `<span class="card-tag">${tag}</span>`).join('') : ''}
                 </div>
