@@ -121,6 +121,7 @@ function renderContent(section, data) {
 function renderAbout(container, data) {
     container.innerHTML = `
         <p>${data.bio || getFallbackData('about').bio}</p>
+        <!--<canvas id="skillsRadar" width="400" height="400"></canvas>-->
         ${data.skills ? `
             <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Skills</h3>
             <div class="hero-tags">
@@ -143,6 +144,8 @@ function renderAbout(container, data) {
             </div>
         ` : ''}
     `;
+
+    //setTimeout(() => initSkillsRadar(data), 100);
 }
 
 // Render Career content
