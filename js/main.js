@@ -1,0 +1,553 @@
+
+// Data storage
+let contentData = {
+    about: null,
+    career: null,
+    education: null,
+    projects: null,
+    publications: null,
+    art: null,
+    music: null
+};
+
+function initTheme() {
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    document.getElementById('themeToggle').checked = savedTheme === 'light';
+}
+
+window.addEventListener('scroll', () => {
+    const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+    document.querySelector('.scroll-progress').style.width = scrolled + '%';
+});
+
+function toggleTheme() {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+}
+
+// Add event listener for theme toggle
+document.getElementById('themeToggle').addEventListener('change', toggleTheme);
+
+
+// Navigation
+function navigateToView(viewName) {
+    // Hide all sections
+    document.querySelectorAll('.view-section').forEach(section => {
+        section.classList.remove('active');
+    });
+
+    // Show selected section
+    const targetSection = document.getElementById(viewName);
+    if (targetSection) {
+        targetSection.classList.add('active');
+    }
+
+    // Update nav active state
+    document.querySelectorAll('.nav-item').forEach(item => {
+        item.classList.remove('active');
+        if (item.dataset.view === viewName) {
+            item.classList.add('active');
+        }
+    });
+
+    // Load content if needed
+    if (viewName !== 'home') {
+        loadContent(viewName);
+    }
+
+    // Close mobile menu
+    document.getElementById('navMenu').classList.remove('active');
+
+    // Smooth scroll to top
+    window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+// Load content from JSON files
+async function loadContent(section) {
+    if (contentData[section]) {
+        renderContent(section, contentData[section]);
+        return;
+    }
+
+    try {
+        const response = await fetch(`data/${section}.json`);
+        if (!response.ok) {
+            throw new Error('Content not found');
+        }
+        const data = await response.json();
+        contentData[section] = data;
+        renderContent(section, data);
+    } catch (error) {
+        console.warn(`Loading fallback content for ${section}`);
+        renderFallbackContent(section);
+    }
+}
+
+// Render content based on section
+function renderContent(section, data) {
+    const container = document.getElementById(`${section}Content`);
+    if (!container) return;
+
+    switch (section) {
+        case 'about':
+            renderAbout(container, data);
+            break;
+        case 'career':
+            //renderCareer(container, data);
+            break;
+        case 'education':
+            //renderEducation(container, data);
+            break;
+        case 'projects':
+            renderProjects(container, data);
+            break;
+        case 'publications':
+            renderPublications(container, data).then(r => {});
+            break;
+        case 'art':
+            //renderArt(container, data);
+            break;
+        case 'music':
+            //renderMusic(container, data);
+            break;
+    }
+}
+
+// Render About content
+function renderAbout(container, data) {
+    container.innerHTML = `
+        <p>${data.bio || getFallbackData('about').bio}</p>
+        <!--<canvas id="skillsRadar" width="400" height="400"></canvas>-->
+        ${data.skills ? `
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Skills</h3>
+            <div class="hero-tags">
+                ${data.skills.map(skill => `<span class="tag">${skill}</span>`).join('')}
+            </div>
+        ` : ''}
+        ${data.languages ? `
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Languages</h3>
+            <div class="languages-grid">
+                ${data.languages.map(lang => `
+                    <div class="language-item">
+                        <img src="assets/images/flags/${lang.flag}" alt="${lang.name}" class="language-flag">
+                        <span class="language-name">${lang.name}</span>
+                        <div class="language-level-bar">
+                            <div class="level-fill" style="width: ${lang.proficiency}%"></div>
+                        </div>
+                        <span class="language-level">${lang.level}</span>
+                    </div>
+                `).join('')}
+            </div>
+        ` : ''}
+    `;
+
+    //setTimeout(() => initSkillsRadar(data), 100);
+}
+
+// Render Career content
+function renderCareer(container, data) {
+    const fallback = getFallbackData('career');
+    const workData = data.work || fallback.work;
+
+    container.innerHTML = `
+        <h3 style="margin-bottom: 2rem;">Work Experience</h3>
+        <div class="timeline work-timeline">
+            ${workData.map(job => `
+                <div class="timeline-item card">
+                    <div class="timeline-header">
+                        ${job.image ? `<img src="${job.image}" alt="${job.title}" class="timeline-photo">` : ''}
+                        <h3>${job.title}</h3>
+                    </div>
+                    <div class="card-meta">
+                        <span class="card-tag">${job.company}</span>
+                        <span class="card-tag">${job.period}</span>
+                    </div>
+                    <p>${job.description}</p>
+                    ${job.location ? `<p style="font-size: 0.9rem; opacity: 0.7;"><em>${job.location}</em></p>` : ''}
+                </div>
+            `).join('')}
+        </div>
+    `;
+}
+
+function renderEducation(container, data) {
+    const fallback = getFallbackData('career');
+    const educationData = data.education || fallback.education;
+
+    container.innerHTML = `
+        <h3 style="margin-top: 4rem; margin-bottom: 2rem;">Education</h3>
+        <div class="timeline education-timeline">
+            ${educationData.map(edu => `
+                <div class="timeline-item card">
+                    <div class="timeline-header">
+                        ${edu.image ? `<img src="${edu.image}" alt="${edu.degree}" class="timeline-photo">` : ''}
+                        <h3>${edu.degree}</h3>
+                    </div>
+                    <div class="card-meta">
+                        <span class="card-tag">${edu.institution}</span>
+                        <span class="card-tag">${edu.period}</span>
+                    </div>
+                    ${edu.specialization ? `<p>${edu.specialization}</p>` : ''}
+                    ${edu.location ? `<p style="font-size: 0.9rem; opacity: 0.7;"><em>${edu.location}</em></p>` : ''}
+                </div>
+            `).join('')}
+        </div>
+    `;
+}
+
+// Render Art content
+function renderArt(container, data) {
+    const installations = data.installations || getFallbackData('art').installations;
+
+    container.innerHTML = `
+        <div class="art-grid">
+            ${installations.map(art => `
+                <div class="art-card">
+                    <div class="art-media">
+                        ${art.image ? `
+                            <img src="${art.image}" alt="${art.title}" class="art-image">
+                        ` : ''}
+                        ${art.video ? `
+                            <div class="play-overlay" onclick="playVideo('${art.video}')">
+                                <svg width="60" height="60" fill="white" viewBox="0 0 24 24">
+                                    <path d="M8 5v14l11-7z"/>
+                                </svg>
+                            </div>
+                        ` : ''}
+                    </div>
+                    <div class="art-content">
+                        <div class="art-header">
+                            <h3>${art.title}</h3>
+                            ${art.award ? `<span class="award-badge">🏆 ${art.award}</span>` : ''}
+                        </div>
+                        <div class="art-meta">
+                            <span class="meta-item">${art.type}</span>
+                            <span class="meta-item">${art.year}</span>
+                        </div>
+                        ${art.venue ? `<p class="art-venue"><strong>${art.venue}</strong></p>` : ''}
+                        <p class="art-description">${art.description}</p>
+                        
+                        ${art.technologies ? `
+                            <div class="art-tech">
+                                ${art.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
+                            </div>
+                        ` : ''}
+                        
+                        ${art.collaborators ? `
+                            <p class="art-collaborators">
+                                <strong>Collaborators:</strong> ${art.collaborators.join(', ')}
+                            </p>
+                        ` : ''}
+                        
+                        <div class="art-links">
+                            ${art.github ? `<a href="${art.github}" target="_blank" class="btn btn-secondary">View Code</a>` : ''}
+                            ${art.video ? `<a href="${art.video}" target="_blank" class="btn btn-secondary">Watch Video</a>` : ''}
+                        </div>
+                    </div>
+                </div>
+            `).join('')}
+        </div>
+    `;
+}
+
+// Render Music content
+function renderMusic(container, data) {
+    const music = data || getFallbackData('music');
+
+    container.innerHTML = `
+        <div class="music-bio">
+            <h3>${music.artist_name || 'Artist Name'}</h3>
+            <p>${music.bio}</p>
+            ${music.genres ? `
+                <div class="music-genres">
+                    ${music.genres.map(genre => `<span class="genre-tag">${genre}</span>`).join('')}
+                </div>
+            ` : ''}
+        </div>
+        
+        ${music.releases ? `
+            <h3 class="section-subtitle">Releases</h3>
+            <div class="releases-grid">
+                ${music.releases.map(release => `
+                    <div class="release-card">
+                        ${release.artwork ? `<img src="${release.artwork}" alt="${release.title}" class="release-artwork">` : ''}
+                        <div class="release-info">
+                            <h4>${release.title}</h4>
+                            <div class="release-meta">
+                                <span class="card-tag">${release.type}</span>
+                                <span class="card-tag">${release.year}</span>
+                            </div>
+                            <div class="release-platforms">
+                                ${release.spotify_uri ? `
+                                    <iframe src="https://open.spotify.com/embed/album/${release.spotify_uri.split(':')[2]}" 
+                                            width="100%" height="152" frameborder="0" 
+                                            allowtransparency="true" allow="encrypted-media">
+                                    </iframe>
+                                ` : ''}
+                                ${release.soundcloud_url && !release.spotify_uri ? `
+                                    <iframe width="100%" height="166" scrolling="no" frameborder="no" 
+                                            allow="autoplay" 
+                                            src="https://w.soundcloud.com/player/?url=${encodeURIComponent(release.soundcloud_url)}&color=%236366f1&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true">
+                                    </iframe>
+                                ` : ''}
+                                <div class="platform-links">
+                                    ${release.spotify_uri ? `<a href="https://open.spotify.com/album/${release.spotify_uri.split(':')[2]}" target="_blank" class="platform-btn spotify">Spotify</a>` : ''}
+                                    ${release.soundcloud_url ? `<a href="${release.soundcloud_url}" target="_blank" class="platform-btn soundcloud">SoundCloud</a>` : ''}
+                                    ${release.youtube_url ? `<a href="${release.youtube_url}" target="_blank" class="platform-btn youtube">YouTube</a>` : ''}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `).join('')}
+            </div>
+        ` : ''}
+        
+        ${music.performances ? `
+            <h3 class="section-subtitle">Recent Performances</h3>
+            <div class="performances-grid">
+                ${music.performances.map((gig, index) => `
+                    <div class="performance-card">
+                        <div class="performance-info">
+                            <h4>${gig.event}</h4>
+                            <div class="performance-meta">
+                                <span class="venue">${gig.venue}</span>
+                                <span class="location">${gig.location}</span>
+                                <span class="date">${gig.date}</span>
+                            </div>
+                            <p>${gig.description || ''}</p>
+                        </div>
+                        ${gig.media ? `
+                            <div class="performance-gallery">
+                                ${gig.media.map((item, mediaIndex) => `
+                                    ${item.type === 'image' ? `
+                                        <div class="gallery-item" onclick="openLightbox('${item.url}')">
+                                            <img src="${item.url}" alt="${item.caption || gig.event}">
+                                            ${item.caption ? `<span class="caption">${item.caption}</span>` : ''}
+                                        </div>
+                                    ` : `
+                                        <div class="gallery-item video-item" onclick="playVideo('${item.url}')">
+                                            <img src="${item.thumbnail}" alt="${gig.event}">
+                                            <div class="play-icon">
+                                                <svg width="40" height="40" fill="white" viewBox="0 0 24 24">
+                                                    <path d="M8 5v14l11-7z"/>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    `}
+                                `).join('')}
+                            </div>
+                        ` : ''}
+                    </div>
+                `).join('')}
+            </div>
+        ` : ''}
+    `;
+}
+
+
+
+// Convert video URLs to embed format
+function getVideoEmbed(url) {
+    if (url.includes('youtube.com/watch?v=')) {
+        const videoId = url.split('v=')[1].split('&')[0];
+        return `https://www.youtube.com/embed/${videoId}`;
+    } else if (url.includes('youtu.be/')) {
+        const videoId = url.split('youtu.be/')[1].split('?')[0];
+        return `https://www.youtube.com/embed/${videoId}`;
+    } else if (url.includes('vimeo.com/')) {
+        const videoId = url.split('vimeo.com/')[1].split('?')[0];
+        return `https://player.vimeo.com/video/${videoId}`;
+    }
+    return url;
+}
+
+// Fallback content
+function getFallbackData(section) {
+    const fallbackData = {
+        about: {
+            bio: "I am Michele Romani, a PhD student in Computer Science specializing in Brain-Computer Interfaces. I come from Asola, a little town in Northern Italy near the beautiful Garda lake. As far as I remember, I have always been passionate about understanding our relationship with technology. I strongly believe that my work should have a positive impact on the relationship between humans and technology, and that AI will play a major role in better understanding the underlying cognitive processes of the brain. At the core, I see myself as a designer: my work lies at the intersection between technology and human behavior, focused on enhancing the interaction between users and computers through Human-Centered AI applications.",
+            skills: ["Machine Learning", "Python", "Unity", "Brain-Computer Interfaces", "Signal Processing", "Creative Design", "Deep Learning", "C++", "C#"]
+        },
+        career: {
+            work: [
+                {
+                    title: "Research & Development",
+                    company: "g.tec Medical Engineering GmbH",
+                    period: "Sept 2023 - May 2024",
+                    description: "Development of Brain-Computer Interfaces for Gaming",
+                    location: "Schiedlberg, Austria"
+                },
+                {
+                    title: "Research Engineer",
+                    company: "myBrainTechnologies",
+                    period: "Apr 2022 - Jul 2023",
+                    description: "Research and development of ML pipelines in Python for neuroscience applications.",
+                    location: "Paris, France"
+                },
+                {
+                    title: "Research Engineer, Intern",
+                    company: "University of Twente - myBrainTechnologies",
+                    period: "Mar 2021 - Sep 2021",
+                    description: "Research project in Python on emotions classification during music listening.",
+                    location: "Enschede, The Netherlands"
+                }
+            ],
+            education: [
+                {
+                    degree: "PhD in Computer Science",
+                    institution: "Università di Trento",
+                    image: "assets/images/avatar.jpg",
+                    period: "2023 - Present",
+                    specialization: "Brain-Computer Interfaces for Gaming",
+                    location: "Trento, Italy"
+                },
+                {
+                    degree: "MSc HCI & Design",
+                    institution: "University of Twente & Université Paris-Saclay",
+                    period: "2019 - 2021",
+                    specialization: "Intelligent Systems & Situated Interaction",
+                    location: "Netherlands & France"
+                },
+                {
+                    degree: "BSc Computer Science",
+                    institution: "Università di Trento",
+                    period: "2013 - 2017",
+                    specialization: "Minor in Economics and Finance",
+                    location: "Trento, Italy"
+                }
+            ]
+        },
+        projects: {
+            projects: [
+                {
+                    title: "BCHJam",
+                    description: "Neuro controller for live music performance in shared Mixed Reality environments.",
+                    fullDescription: "BCHJam is a neuro controller for live music performance in shared Mixed Reality environments. The musician, equipped with a BCI, can use brain input to activate effects and control the music in real-time. Alpha and beta waves generate visual effects visible to the audience using mixed reality headsets.",
+                    tags: ["BCI", "Machine Learning", "Unity", "Mixed Reality"],
+                    award: "1st Place - BR41N.IO 2024",
+                    github: "https://github.com/BRomans/BCHJam",
+                    image: "assets/projects/BCHJam/bchjam.png",
+                    video: "https://youtube.com/watch?v=...",
+                },
+                {
+                    title: "NervCon",
+                    description: "Powerful overlay controller integrating BCI technology with games.",
+                    fullDescription: "NervCon is a powerfful overlay controller designed to seamlessly integrate Brain-Computer Interface (BCI) technology with your favourite games. This innovative controller allows users to control games using their brain signals, making gaming more immersive and accessible.",
+                    tags: ["BCI", "Unity", "Gaming", "Machine Learning"],
+                    award: "1st Place - NTX Global Hackathon 2023",
+                    github: "https://github.com/unicorn-bi/NervCon",
+                    image: "assets/projects/NervCon/nervcon.png"
+                },
+                {
+                    title: "P.E.R.S.O.N.A.",
+                    description: "AI for artistic expression of human empathy.",
+                    fullDescription: "P.E.R.S.O.N.A. is an AI created for artistic expression of human empathy. A participatory experience of an interactive reinforcement learning model that learns to communicate with humans through facial expressions and proximity sensors.",
+                    tags: ["AI", "Machine Learning", "Unreal Engine", "Arduino"],
+                    award: "3rd Place - CREARTATHON 2021",
+                    github: "https://github.com/BRomans/PERSONA",
+                    image: "assets/projects/PERSONA/poster.png"
+                }
+            ]
+        },
+        publications: {
+            publications: [
+                {
+                    title: "BCHJam: a Brain-Computer Music Interface for Live Music Performance",
+                    type: "Conference Paper",
+                    year: "2024",
+                    venue: "IEEE",
+                    abstract: "Integration of brain-computer interfaces and mixed reality headsets in Internet of Musical Things performance ecosystems.",
+                    link: "https://ieeexplore.ieee.org/document/10704087",
+                    github: "https://github.com/BRomans/BCHJam"
+                },
+                {
+                    title: "Hybrid Harmony: A Multi-Person Neurofeedback Application",
+                    type: "Journal Article",
+                    year: "2021",
+                    venue: "Frontiers in Neuroergonomics",
+                    abstract: "Hyperscanning research demonstrating brain activity synchronization across people during social interaction.",
+                    link: "https://www.frontiersin.org/articles/10.3389/fnrgo.2021.687108/full"
+                }
+            ]
+        },
+        art: {
+            installations: [
+                {
+                    title: "Neural Resonance",
+                    year: "2024",
+                    description: "Interactive installation using EEG to create real-time visual and audio experiences.",
+                    venue: "Digital Art Festival",
+                    image: "assets/art/neural_resonance.jpg"
+                }
+            ]
+        },
+        music: {
+            bio: "Electronic music producer and DJ, exploring the intersection of neuroscience and sound design. My sets blend techno, ambient, and experimental electronic music, often incorporating live brain-computer interface performances.",
+            releases: [],
+            performances: []
+        }
+    };
+
+    return fallbackData[section] || {};
+}
+
+// Render fallback content
+function renderFallbackContent(section) {
+    const fallbackData = getFallbackData(section);
+    renderContent(section, fallbackData);
+}
+
+// Mobile menu toggle
+document.getElementById('menuToggle').addEventListener('click', function () {
+    document.getElementById('navMenu').classList.toggle('active');
+});
+
+// Nav item clicks
+document.querySelectorAll('.nav-item').forEach(item => {
+    item.addEventListener('click', function () {
+        const view = this.dataset.view;
+        navigateToView(view);
+    });
+});
+
+// Close modal on outside click
+document.getElementById('projectModal').addEventListener('click', function (e) {
+    if (e.target === this) {
+        closeModal();
+    }
+});
+
+// Handle scroll effect on navbar
+let lastScroll = 0;
+window.addEventListener('scroll', () => {
+    const navbar = document.getElementById('navbar');
+    const currentScroll = window.pageYOffset;
+
+    if (currentScroll > lastScroll && currentScroll > 100) {
+        navbar.style.transform = 'translateY(-100%)';
+    } else {
+        navbar.style.transform = 'translateY(0)';
+    }
+
+    lastScroll = currentScroll;
+});
+
+// Initialize
+document.addEventListener('DOMContentLoaded', function () {
+    initTheme();
+    // Check for hash navigation
+    if (window.location.hash) {
+        const view = window.location.hash.substring(1);
+        navigateToView(view);
+    }
+});
+
+// Handle browser back/forward
+window.addEventListener('hashchange', function () {
+    const view = window.location.hash.substring(1) || 'home';
+    navigateToView(view);
+});

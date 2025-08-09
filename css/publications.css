@@ -1,0 +1,118 @@
+.publications-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding: 2rem;
+    background: rgba(30, 41, 59, 0.3);
+    border-radius: 20px;
+}
+
+.publications-stats {
+    display: flex;
+    gap: 2rem;
+}
+
+.stat-box {
+    text-align: center;
+}
+
+.stat-number {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: var(--text);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.publications-controls {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+#publicationSort {
+    padding: 0.75rem 1rem;
+    background: var(--dark-lighter);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    color: var(--text-bright);
+    cursor: pointer;
+}
+
+.publications-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.publication-card {
+    display: flex;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    background: rgba(30, 41, 59, 0.5);
+    border-radius: 16px;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.publication-card:hover {
+    transform: translateX(5px);
+    border-color: var(--primary);
+}
+
+.publication-number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary);
+    opacity: 0.3;
+    min-width: 50px;
+}
+
+.publication-title a {
+    color: var(--text-bright);
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.publication-title a:hover {
+    color: var(--primary);
+}
+
+.publication-authors {
+    color: var(--text);
+    margin: 0.5rem 0;
+}
+
+.publication-meta {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 0.5rem;
+}
+
+.publication-meta span {
+    padding: 0.25rem 0.75rem;
+    background: rgba(99, 102, 241, 0.1);
+    border-radius: 20px;
+    font-size: 0.85rem;
+}
+
+.meta-citations {
+    background: rgba(20, 184, 166, 0.1);
+    color: var(--accent);
+}
+
+.publication-snippet {
+    margin-top: 1rem;
+    color: var(--text);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
