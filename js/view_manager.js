@@ -126,4 +126,4 @@ class ViewManager {
         }
 
         if (window.portfolioData.loading) {
-            throw
+            throw new Error('Data loading timed out in waitForDataLoad');
