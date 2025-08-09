@@ -634,7 +634,7 @@ body {
         top: 70px;
         flex-direction: column;
         background: var(--primary-dark);
-        color: var(--text);
+        color: var(--text-bright);
         width: 100%;
         text-align: center;
         transition: 0.3s;
