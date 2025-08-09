@@ -1,0 +1,37 @@
+{
+  "bio": "I am Michele Romani, a PhD student in Computer Science specializing in Brain-Computer Interfaces. I come from Asola, a little town in Northern Italy near the beautiful Garda lake. As far as I remember, I have always been passionate about understanding our relationship with technology. I strongly believe that my work should have a positive impact on the relationship between humans and technology, and that AI will play a major role in better understanding the underlying cognitive processes of the brain. At the core, I see myself as a designer: my work lies at the intersection between technology and human behavior, focused on enhancing the interaction between users and computers through Human-Centered AI applications.",
+  "skills": [
+    "Machine Learning",
+    "Deep Learning",
+    "Python",
+    "Unity (C#)",
+    "Brain-Computer Interfaces",
+    "Signal Processing",
+    "Creative Design",
+    "C++",
+    "Game Development",
+    "Research",
+    "Neuroscience",
+    "Mixed Reality"
+  ],
+  "languages": [
+    {
+      "name": "Italian",
+      "level": "Native",
+      "proficiency": 100,
+      "flag": "italy.png"
+    },
+    {
+      "name": "English",
+      "level": "Professional",
+      "proficiency": 90,
+      "flag": "uk.png"
+    },
+    {
+      "name": "French",
+      "level": "Intermediate",
+      "proficiency": 60,
+      "flag": "france.png"
+    }
+  ]
+}

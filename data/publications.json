@@ -1,0 +1,63 @@
+{
+  "publications": [
+    {
+      "title": "NeuroWizard: Investigating the Effect of Gamification on BCI Performance among Adult Users with ADHD",
+      "authors": ["M. Romani", "et al."],
+      "type": "Conference Paper",
+      "venue": "CHI 2024",
+      "year": "2024",
+      "image": "assets/publications/neurowizard.png",
+      "abstract": "Brain-Computer Interfaces (BCI) are systems that allow users to transmit commands to computers using brain activity. This study explored how individuals with ADHD interacted with a gamified BCI task compared to a non-gamified standard one. Results indicated that the Gamified environment scored higher on Sensory and Imaginative Immersion while scoring lower on Negative Affect.",
+      "link": "",
+      "github": "",
+      "keywords": ["BCI", "ADHD", "Gamification", "User Experience"]
+    },
+    {
+      "title": "BCHJam: a Brain-Computer Music Interface for Live Music Performance in Shared Mixed Reality Environments",
+      "authors": ["M. Romani", "L. Turchet", "et al."],
+      "type": "Conference Paper",
+      "venue": "IEEE Internet of Things",
+      "year": "2024",
+      "image": "assets/publications/bchjam.png",
+      "abstract": "We present BCHJam: an IoMusT-based performance ecosystem composed of performers, audience members, brain-computer interfaces, smart musical instruments, and mixed reality headsets. The BCMI signal controls mixed reality visual effects displayed in XR headsets worn by audience members.",
+      "link": "https://ieeexplore.ieee.org/document/10704087",
+      "github": "https://github.com/BRomans/BCHJam",
+      "keywords": ["BCI", "IoMusT", "Mixed Reality", "Live Performance"]
+    },
+    {
+      "title": "Hybrid Harmony: A Multi-Person Neurofeedback Application for Interpersonal Synchrony",
+      "authors": ["T. Beelen", "M. Romani", "et al."],
+      "type": "Journal Article",
+      "venue": "Frontiers in Neuroergonomics",
+      "year": "2021",
+      "image": "assets/publications/hybrid_harmony.png",
+      "abstract": "Recent years have seen a dramatic increase in studies measuring brain activity, physiological responses, and/or movement data from multiple individuals during social interaction. So-called 'hyperscanning' research has demonstrated that brain activity may become synchronized across people as a function of various factors.",
+      "link": "https://www.frontiersin.org/articles/10.3389/fnrgo.2021.687108/full",
+      "keywords": ["Hyperscanning", "Neurofeedback", "Social Interaction", "EEG"]
+    },
+    {
+      "title": "Music-Emotion: Towards real-time recognition of affective states using a wearable Brain-Computer Interface",
+      "authors": ["M. Romani"],
+      "type": "Thesis",
+      "venue": "University of Twente",
+      "year": "2021",
+      "image": "assets/publications/music_emotion.png",
+      "abstract": "This research investigates the feasibility of performing Emotion-Recognition using Melomind, a wearable neural interface. EEG signals are processed using machine learning algorithms for classification of emotional dimensions of valence and arousal.",
+      "link": "https://drive.google.com/file/d/1_mDoYk-ZotFWqijxp46Omp6hSfjMEnBL/view",
+      "github": "https://github.com/BRomans/EmotionMusic-Classification",
+      "keywords": ["EEG", "Emotion Recognition", "Machine Learning", "Music"]
+    },
+    {
+      "title": "AR Notes: Augmenting Collaborative Tools",
+      "authors": ["M. Romani", "et al."],
+      "type": "Research Report",
+      "venue": "Université Paris-Saclay",
+      "year": "2020",
+      "image": "assets/publications/ar_notes.png",
+      "abstract": "Over decades of HCI research, humans interact more naturally with tangible interfaces recalling familiar functionalities. This work explores integrating tangibles and software in augmented reality collaborative environments.",
+      "link": "https://drive.google.com/file/d/1xY7Rubdnqq3JtsOcimV8eJThWwOrQuvu/view",
+      "github": "https://github.com/BRomans/EIT_AR_Notes",
+      "keywords": ["AR", "HCI", "Collaboration", "Tangible Interfaces"]
+    }
+  ]
+}

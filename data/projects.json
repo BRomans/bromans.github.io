@@ -1,0 +1,101 @@
+{
+  "projects": [
+    {
+      "title": "BCHJam",
+      "description": "Neuro controller for live music performance in shared Mixed Reality environments.",
+      "fullDescription": "BCHJam is a neuro controller for live music performance in shared Mixed Reality environments. The musician, equipped with a BCI, can use brain input to activate effects and control the music in real-time. Alpha and beta waves generate visual effects visible to the audience using mixed reality headsets. This project explores the possibilities of using BCI in live music performances to create a new form of artistic expression.",
+      "image": "assets/projects/BCHJam/bchjam.png",
+      "tags": ["BCI", "Machine Learning", "Unity", "Mixed Reality", "Music"],
+      "award": "1st Place - BR41N.IO 2024",
+      "year": "2024",
+      "github": "https://github.com/BRomans/BCHJam",
+      "paper": "https://ieeexplore.ieee.org/document/10704087",
+      "video": "https://www.youtube.com/watch?v=aIUvgyed3MQ"
+    },
+    {
+      "title": "NervCon",
+      "description": "Powerful overlay controller integrating BCI technology with games.",
+      "fullDescription": "NervCon is a powerful overlay controller designed to seamlessly integrate Brain-Computer Interface (BCI) technology with your favourite games. This innovative controller allows users to control games using their brain signals, making gaming more immersive and accessible. Built as an overlay application with drag-and-drop customizable interface for connecting your mind to the gaming experience.",
+      "image": "assets/projects/NervCon/nervcon.png",
+      "tags": ["BCI", "Unity", "Gaming", "Machine Learning", "C#"],
+      "award": "1st Place - NTX Global Hackathon 2023",
+      "year": "2023",
+      "github": "https://github.com/unicorn-bi/NervCon"
+    },
+    {
+      "title": "P.E.R.S.O.N.A.",
+      "description": "AI for artistic expression of human empathy.",
+      "fullDescription": "P.E.R.S.O.N.A. is an AI created for artistic expression of human empathy. A participatory experience of an interactive reinforcement learning model that learns to communicate with humans through facial expressions and proximity sensors. The AI evolves its behavior based on human interaction patterns.",
+      "image": "assets/projects/PERSONA/poster.png",
+      "tags": ["AI", "Machine Learning", "Unreal Engine", "Arduino", "Art"],
+      "award": "3rd Place - CREARTATHON 2021",
+      "year": "2021",
+      "github": "https://github.com/BRomans/PERSONA"
+    },
+    {
+      "title": "Deep Harbour",
+      "description": "Dynamic pricing platform for container logistics using LSTM networks.",
+      "fullDescription": "Deep Harbour is a platform for cargo owners, freight forwarders and transportation companies to efficiently handle container flow by adjusting prices of supply/demand using Dynamic Pricing. The model is based on LSTM networks fed with prediction of peaks from historical data.",
+      "image": "assets/projects/DeepHarbor/deep_harbor.png",
+      "tags": ["Deep Learning", "LSTM", "Python", "Logistics"],
+      "award": "2nd Place - EIT Digital DeepHack 2020",
+      "year": "2020"
+    },
+    {
+      "title": "Brain Hockey",
+      "description": "Pong game controlled by brain signals through neurofeedback.",
+      "fullDescription": "BrainHockey is an innovative take on the beloved Pong game, where players use their brainpower to control the paddle instead of traditional inputs. Players move their paddle by focusing and concentrating on Neurofeedback Targets.",
+      "image": "assets/projects/BrainHockey/brain_hockey.png",
+      "tags": ["BCI", "Unity", "EEG", "Gaming", "Neurofeedback"],
+      "year": "2024",
+      "github": "https://github.com/BRomans/BrainHockey"
+    },
+    {
+      "title": "The Green Shield",
+      "description": "Space Invaders with BCI-controlled barriers in VR.",
+      "fullDescription": "A revisited version of Space Invaders where the player uses a BCI to create barriers and stop the alien invasion. Developed for G.Tec Unicorn devices, playable on PC or Meta Quest VR.",
+      "image": "assets/projects/TheGreenShield/green_shield.png",
+      "tags": ["BCI", "Unity", "VR", "Gaming", "EEG"],
+      "year": "2023",
+      "github": "https://github.com/BRomans/TheGreenShield"
+    },
+    {
+      "title": "FLOWer",
+      "description": "Redesigned P300 speller with flower-based interface.",
+      "fullDescription": "A revisited design of the classic P300 speller that improves accuracy through CNN analysis, UX through intuitive flower interface, and ITR using NLP/LLM for predictive adaptive interface.",
+      "image": "assets/projects/FLOWer/flower.png",
+      "tags": ["BCI", "Machine Learning", "Python", "Figma", "P300"],
+      "year": "2023",
+      "github": "https://github.com/BRomans/FLOWer",
+      "demo": "https://www.figma.com/proto/qRgislCXYSYOzEXIEh3Nli/P300-FLOWer"
+    },
+    {
+      "title": "Music-Emotion",
+      "description": "Real-time emotion recognition from EEG during music listening.",
+      "fullDescription": "Pipeline to process and classify emotional valence and arousal in brain activity of users listening to music. Proof of concept for emotion-based music recommendation systems.",
+      "image": "assets/projects/Music-Emotion/home.jpg",
+      "tags": ["Machine Learning", "EEG", "Python", "Signal Processing"],
+      "year": "2021",
+      "github": "https://github.com/BRomans/EmotionMusic-Classification"
+    },
+    {
+      "title": "Mindworms",
+      "description": "Worms-like game where attack power is modulated by brain activity.",
+      "fullDescription": "Mindworms is a Worms-like game in Unity showcasing brain activity as game input. The power of player attacks is modulated by the sensorimotor rhythm of the players.",
+      "image": "assets/projects/Mindworms/home.png",
+      "tags": ["BCI", "Unity", "Gaming", "EEG", "Machine Learning"],
+      "year": "2021",
+      "github": "https://github.com/BRomans/advanced-project-bci"
+    },
+    {
+      "title": "XR Music Lab",
+      "description": "Mixed reality application for music composition and mixing.",
+      "fullDescription": "Creative application for mixing music using VR and AR. In VR, players learn music composition with totem beats. In AR, players use an augmented console with Leap Motion to transpose hands into virtual environment.",
+      "image": "assets/projects/XRMusicLab/home.png",
+      "tags": ["Mixed Reality", "Unity", "Music", "Leap Motion"],
+      "year": "2020",
+      "github": "https://github.com/BRomans/EIT_XR_Music_Lab",
+      "video": "https://drive.google.com/file/d/13y2jOSAXh6gAugM7NgERDsjK58k1Fjg-/view"
+    }
+  ]
+}

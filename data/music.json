@@ -1,0 +1,84 @@
+{
+  "bio": "Electronic music producer and DJ exploring the intersection of neuroscience and sound design. My sets blend techno, ambient, and experimental electronic music, often incorporating live brain-computer interface performances to create a unique audiovisual experience where mind and music merge.",
+  "artist_name": "ROMANI",
+  "genres": ["Techno", "Ambient", "Experimental", "Live Electronic"],
+  "releases": [
+    {
+      "title": "Neural Pathways EP",
+      "type": "EP",
+      "year": "2024",
+      "artwork": "assets/music/releases/neural_pathways.jpg",
+      "spotify_uri": "spotify:album:ALBUM_ID",
+      "soundcloud_url": "https://soundcloud.com/user/sets/neural-pathways",
+      "youtube_playlist": "https://www.youtube.com/playlist?list=PLAYLIST_ID",
+      "tracks": ["Synaptic Flow", "Brainwave", "Cortex Dreams", "Neural Network"]
+    },
+    {
+      "title": "Live at Voltage Festival",
+      "type": "DJ Set",
+      "year": "2024",
+      "artwork": "assets/music/releases/voltage_live.jpg",
+      "soundcloud_url": "https://soundcloud.com/user/voltage-festival-2024",
+      "youtube_url": "https://www.youtube.com/watch?v=VIDEO_ID"
+    }
+  ],
+  "performances": [
+    {
+      "event": "Voltage Electronic Festival",
+      "venue": "Warehouse District",
+      "location": "Milan, Italy",
+      "date": "October 2024",
+      "description": "Closing set featuring live BCI visuals synchronized with techno beats",
+      "media": [
+        {
+          "type": "image",
+          "url": "assets/music/performances/voltage_1.jpg",
+          "caption": "Main stage setup"
+        },
+        {
+          "type": "image",
+          "url": "assets/music/performances/voltage_2.jpg",
+          "caption": "Crowd during BCI segment"
+        },
+        {
+          "type": "video",
+          "url": "https://www.youtube.com/watch?v=VIDEO_ID",
+          "thumbnail": "assets/music/performances/voltage_thumb.jpg"
+        }
+      ]
+    },
+    {
+      "event": "Neuro Nights",
+      "venue": "Club Synthetic",
+      "location": "Amsterdam, Netherlands",
+      "date": "September 2024",
+      "description": "Experimental ambient set with live EEG modulation",
+      "media": [
+        {
+          "type": "image",
+          "url": "assets/music/performances/neuro_1.jpg"
+        },
+        {
+          "type": "image",
+          "url": "assets/music/performances/neuro_2.jpg"
+        }
+      ]
+    },
+    {
+      "event": "Digital Dreams",
+      "venue": "Open Air Theatre",
+      "location": "Paris, France",
+      "date": "July 2024",
+      "description": "Sunset DJ set blending organic and electronic elements",
+      "media": [
+        {
+          "type": "video",
+          "url": "https://vimeo.com/VIDEO_ID",
+          "thumbnail": "assets/music/performances/digital_thumb.jpg"
+        }
+      ]
+    }
+  ],
+  "soundcloud_embed": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/USER_ID",
+  "spotify_artist_id": "SPOTIFY_ARTIST_ID"
+}

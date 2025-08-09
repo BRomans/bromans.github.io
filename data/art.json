@@ -1,0 +1,62 @@
+{
+  "installations": [
+    {
+      "title": "Neural Resonance",
+      "year": "2024",
+      "type": "Interactive Installation",
+      "description": "An immersive installation where visitors' brain waves create real-time visual and audio experiences. EEG sensors capture neural activity, transforming thoughts and emotions into evolving digital landscapes and soundscapes.",
+      "image": "assets/art/neural_resonance.jpg",
+      "video": "https://vimeo.com/VIDEO_ID",
+      "venue": "Digital Art Festival, Milan",
+      "collaborators": ["Artist Name", "Sound Designer"],
+      "technologies": ["EEG", "TouchDesigner", "Max/MSP", "Unity"],
+      "exhibition_dates": "March 15-30, 2024"
+    },
+    {
+      "title": "P.E.R.S.O.N.A.",
+      "year": "2021",
+      "type": "AI Art Installation",
+      "description": "An AI entity that learns to communicate with humans through facial expressions and proximity sensors. This participatory experience explores empathy between humans and artificial intelligence through reinforcement learning.",
+      "image": "assets/art/persona.jpg",
+      "video": "https://www.youtube.com/watch?v=VIDEO_ID",
+      "venue": "CREARTATHON 2021",
+      "award": "3rd Place",
+      "collaborators": ["Team Member 1", "Team Member 2"],
+      "technologies": ["Machine Learning", "Arduino", "Unreal Engine"],
+      "exhibition_dates": "October 2021"
+    },
+    {
+      "title": "Amuleto - Sincere Pill Dispenser",
+      "year": "2020",
+      "type": "Design Object",
+      "description": "A sincere and courageous pill dispenser designed to help patients cope with their diagnosis. The project emerged from a Multisensory Design process that included multiple human senses in product design.",
+      "image": "assets/art/amuleto.jpg",
+      "video": "https://drive.google.com/file/d/1kMdBxILoV84EiW2eQiLBE7yBGL8B4ehl/view",
+      "venue": "Multisensory Design Course, Paris",
+      "technologies": ["Unreal Engine", "Illustrator", "Figma", "3D Modeling"],
+      "exhibition_dates": "June 2020"
+    },
+    {
+      "title": "Exhibition of a Lifetime",
+      "year": "2020",
+      "type": "VR Experience",
+      "description": "A VR art gallery where spectators journey through visual and audio experiences representing four phases of life: childhood, youth, adulthood, and seniority. Explores innovative ways for people to interact with art pieces.",
+      "image": "assets/art/exhibition_lifetime.jpg",
+      "venue": "EIT Digital Innovation & Entrepreneurship",
+      "collaborators": ["VR Developer", "3D Artist"],
+      "technologies": ["Unity", "VR", "Spatial Audio"],
+      "github": "https://github.com/BRomans/EIT_Innovation_Entrepreneurship_Advanced"
+    },
+    {
+      "title": "Throw Away",
+      "year": "2015",
+      "type": "Interactive Game Design",
+      "description": "An interactive tangible serious game prototype designed to teach children proper waste recycling through playful interaction.",
+      "image": "assets/art/throwaway.jpg",
+      "video": "https://drive.google.com/file/d/1JY8O8y0TIHXOtlG9NXQpt8kGplwB67EI/view",
+      "venue": "Interaction Design Course",
+      "technologies": ["Illustrator", "Arduino", "Processing"],
+      "target_audience": "Children aged 6-10"
+    }
+  ]
+}
