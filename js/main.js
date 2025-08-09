@@ -67,22 +67,26 @@ function navigateToView(viewName) {
 }
 
 // Load content from JSON files
+// Cache JSON data in sessionStorage
 async function loadContent(section) {
-    if (contentData[section]) {
-        renderContent(section, contentData[section]);
+    // Check cache first
+    const cached = sessionStorage.getItem(`content_${section}`);
+    if (cached) {
+        const data = JSON.parse(cached);
+        renderContent(section, data);
         return;
     }
 
+    // Fetch if not cached
     try {
         const response = await fetch(`data/${section}.json`);
-        if (!response.ok) {
-            throw new Error('Content not found');
-        }
         const data = await response.json();
+
+        // Cache for session
+        sessionStorage.setItem(`content_${section}`, JSON.stringify(data));
         contentData[section] = data;
         renderContent(section, data);
     } catch (error) {
-        console.warn(`Loading fallback content for ${section}`);
         renderFallbackContent(section);
     }
 }
