@@ -1,15 +1,33 @@
-// Mouse trail for dark mode
-let mouseTrail = [];
-const trailLength = 8;
-var drawTrail = true;
+const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth < 768;
 
+// Initialize trail based on device
+if (!isMobile) {
+    // Enable on desktop by default if you want, or keep it false
+    mouseTrailEnabled = localStorage.getItem('mouseTrail') === 'true' || false;
+}
+
+// Mouse trail event listener
 document.addEventListener('mousemove', (e) => {
-    if(document.documentElement.getAttribute('data-theme') === 'dark' && drawTrail) {
+    if (!mouseTrailEnabled || isMobile) return;
+
+    if (document.documentElement.getAttribute('data-theme') === 'dark') {
         createTrailDot(e.pageX, e.pageY);
     } else {
-        createTrailSquare(e.pageX, e.pageY)
+        createTrailSquare(e.pageX, e.pageY);
     }
 });
+
+// Toggle trail function
+function toggleMouseTrail() {
+    mouseTrailEnabled = !mouseTrailEnabled;
+    localStorage.setItem('mouseTrail', mouseTrailEnabled);
+
+    // Update button appearance
+    const btn = document.getElementById('trailToggle');
+    if (btn) {
+        btn.classList.toggle('active', mouseTrailEnabled);
+    }
+}
 
 function createTrailDot(x, y) {
     const dot = document.createElement('div');

@@ -19,14 +19,21 @@
     <link href="css/form.css" rel="stylesheet">
     <link href="css/trail.css" rel="stylesheet">
     <link rel="preload" href="css/trail.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="css/trail.css"></noscript>
+    <noscript>
+        <link rel="stylesheet" href="css/trail.css">
+    </noscript>
     <link rel="preload" href="css/publications.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="css/publications.css"></noscript>
+    <noscript>
+        <link rel="stylesheet" href="css/publications.css">
+    </noscript>
     <link rel="preload" href="css/projects.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="css/projects.css"></noscript>
+    <noscript>
+        <link rel="stylesheet" href="css/projects.css">
+    </noscript>
     <link rel="preload" href="css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="css/styles.css"></noscript>
-
+    <noscript>
+        <link rel="stylesheet" href="css/styles.css">
+    </noscript>
 
 
 </head>
@@ -61,6 +68,9 @@
             <!--<li class="nav-item" data-view="music">Music</li>-->
         </ul>
         <div class="nav-actions">
+            <button id="trailToggle" class="trail-toggle" onclick="toggleMouseTrail()" title="Toggle mouse trail">
+                <img width="20"  height="20" src="assets/svg/mouse-cursor-svgrepo-com.svg"/>
+            </button>
             <div class="theme-switch">
                 <input type="checkbox" id="themeToggle" class="theme-toggle-input">
                 <label for="themeToggle" class="theme-toggle-label">
@@ -87,10 +97,10 @@
     <section id="home" class="view-section active hero">
         <div class="hero-content">
             <div class="logo-image logo-dark">
-                <img src="assets/images/webp/logo.webp" alt="Michele Romani" fetchpriority="high" >
+                <img src="assets/images/webp/logo.webp" alt="Michele Romani" fetchpriority="high">
             </div>
             <div class="logo-image logo-light">
-                <img src="assets/images/webp/logo_outline.webp" alt="Michele Romani" fetchpriority="high" >
+                <img src="assets/images/webp/logo_outline.webp" alt="Michele Romani" fetchpriority="high">
             </div>
             <h1>Michele Romani</h1>
             <p class="hero-subtitle">Creative Technologist & Machine Learning Researcher</p>

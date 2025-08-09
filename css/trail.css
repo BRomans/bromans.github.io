@@ -1,3 +1,37 @@
+/* Trail toggle button */
+.trail-toggle {
+    display: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    background: var(--dark-lighter);
+    border: 1px solid var(--border-color);
+    color: var(--text);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Show only on desktop */
+@media (min-width: 769px) {
+    .trail-toggle {
+        display: flex;
+    }
+}
+
+.trail-toggle:hover {
+    background: rgba(99, 102, 241, 0.1);
+    border-color: var(--primary);
+}
+
+.trail-toggle.active {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+}
+
+/* Trail dot for dark mode (existing) */
 .trail-dot {
     position: absolute;
     width: 6px;
@@ -9,14 +43,15 @@
     z-index: 9999;
 }
 
+/* Trail square for light mode */
 .trail-square {
     position: absolute;
     width: 8px;
     height: 8px;
     background: var(--primary);
-    border-radius: 2px;
+    transform: rotate(45deg);
     pointer-events: none;
-    animation: fade-trail 0.6s ease-out forwards;
+    animation: fade-trail-square 0.6s ease-out forwards;
     z-index: 9999;
 }
 
@@ -24,5 +59,20 @@
     to {
         transform: scale(2);
         opacity: 0;
+    }
+}
+
+@keyframes fade-trail-square {
+    to {
+        transform: rotate(135deg) scale(2);
+        opacity: 0;
+    }
+}
+
+/* Hide trail elements on mobile */
+@media (max-width: 768px) {
+    .trail-dot,
+    .trail-square {
+        display: none !important;
     }
 }

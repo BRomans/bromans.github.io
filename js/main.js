@@ -1,4 +1,3 @@
-
 // Data storage
 let contentData = {
     about: null,
@@ -110,7 +109,8 @@ function renderContent(section, data) {
             renderProjects(container, data);
             break;
         case 'publications':
-            renderPublications(container, data).then(r => {});
+            renderPublications(container, data).then(r => {
+            });
             break;
         case 'art':
             //renderArt(container, data);
@@ -323,7 +323,6 @@ function renderMusic(container, data) {
 }
 
 
-
 // Convert video URLs to embed format
 function getVideoEmbed(url) {
     if (url.includes('youtube.com/watch?v=')) {
@@ -517,6 +516,12 @@ document.addEventListener('DOMContentLoaded', function () {
     if (window.location.hash) {
         const view = window.location.hash.substring(1);
         navigateToView(view);
+    }
+    if (!isMobile) {
+        const trailBtn = document.getElementById('trailToggle');
+        if (trailBtn) {
+            trailBtn.classList.toggle('active', mouseTrailEnabled);
+        }
     }
 });
 
