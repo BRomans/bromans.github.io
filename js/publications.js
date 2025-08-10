@@ -30,6 +30,9 @@ async function renderPublications(container, data) {
     publications.sort((a, b) => (b.year || 0) - (a.year || 0));
 
     container.innerHTML = `
+        <div class="research-section-description">
+            <p>Explore my research contributions in the field of Brain-Computer Interfaces and Machine Learning.</p>
+        </div>
         <div class="publications-header">
             <div class="publications-stats">
                 <div class="stat-box">
@@ -51,7 +54,7 @@ async function renderPublications(container, data) {
                 <a href="https://scholar.google.com/citations?user=iizn9w0AAAAJ&hl=en" 
                    target="_blank" 
                    class="btn btn-secondary">
-                    View on Google Scholar
+                    View on GScholar
                 </a>
             </div>
         </div>

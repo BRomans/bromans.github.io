@@ -1,3 +1,10 @@
+.research-section-description {
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--text);
+}
+
 .publications-header {
     display: flex;
     justify-content: space-between;
@@ -115,4 +122,28 @@
     color: var(--text);
     font-size: 0.95rem;
     line-height: 1.6;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .publications-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .stat-box {
+        width: 100%;
+    }
+
+    #publicationSort {
+        width: 100%;
+    }
+
+    .publication-card {
+        flex-direction: column;
+    }
+
+    .publication-number {
+        margin-bottom: 1rem;
+    }
 }
