@@ -36,7 +36,7 @@
       "title": "Deep Harbour",
       "description": "Dynamic pricing platform for container logistics using LSTM networks.",
       "fullDescription": "Deep Harbour is a platform for cargo owners, freight forwarders and transportation companies to efficiently handle container flow by adjusting prices of supply/demand using Dynamic Pricing. The model is based on LSTM networks fed with prediction of peaks from historical data.",
-      "image": "assets/images/webp/deep_harbor.webp",
+      "image": "assets/projects/DeepHarbor/deep_harbor.png",
       "tags": ["Deep Learning", "LSTM", "Python", "Logistics"],
       "award": "2nd Place - EIT Digital DeepHack 2020",
       "year": "2020"

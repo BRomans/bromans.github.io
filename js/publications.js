@@ -54,7 +54,7 @@ async function renderPublications(container, data) {
                 <a href="https://scholar.google.com/citations?user=iizn9w0AAAAJ&hl=en" 
                    target="_blank" 
                    class="btn btn-secondary">
-                    View on GScholar
+                    View on Scholar
                 </a>
             </div>
         </div>
