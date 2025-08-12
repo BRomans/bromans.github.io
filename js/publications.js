@@ -17,6 +17,7 @@ async function generatePublicationsJSON() {
 async function renderPublications(container, data) {
     // Try to fetch from local json file first
     let publications = data.publications || getFallbackData('publications').publications;
+    let interests = data.interests || getFallbackData('publications').interests;
     if (!publications || publications.length === 0) {
         publications = await fetchGoogleScholarPublications() || await fetchLocalScholarPublications();
         if (!publications || publications.length === 0) {
@@ -31,7 +32,8 @@ async function renderPublications(container, data) {
 
     container.innerHTML = `
         <div class="research-section-description">
-            <p>Explore my research contributions in the field of Brain-Computer Interfaces and Machine Learning.</p>
+            <p>
+            ${interests}</p>
         </div>
         <div class="publications-header">
             <div class="publications-stats">

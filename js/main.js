@@ -445,7 +445,9 @@ function getFallbackData(section) {
                     abstract: "Hyperscanning research demonstrating brain activity synchronization across people during social interaction.",
                     link: "https://www.frontiersin.org/articles/10.3389/fnrgo.2021.687108/full"
                 }
-            ]
+            ],
+            "interests": "My current area of research is mainly focused on Deep Learning applications for Brain-Computer Interfaces, specifically conditioning methods for few-shots calibration of unseen users with shallow networks. Previously I researched the integration of BCI into gaming environments and BCI for artistic expression; both remain areas of interest for possible collaborations. Aside from BCI, I also study and develop Deep Learning applications for Human-AI interaction and tiny architectures for embedded gaming hardware."
+
         },
         art: {
             installations: [
