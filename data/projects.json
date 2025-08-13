@@ -22,7 +22,7 @@
       "title": "NervCon",
       "description": "Powerful overlay controller integrating BCI technology with games.",
       "fullDescription": "NervCon is a powerful overlay controller designed to seamlessly integrate Brain-Computer Interface (BCI) technology with your favourite games. This innovative controller allows users to control games using their brain signals, making gaming more immersive and accessible. Built as an overlay application with drag-and-drop customizable interface for connecting your mind to the gaming experience.",
-      "image": "assets/projects/NervCon/nervcon.png",
+      "image": "assets/images/webp/nervcon.webp",
       "tags": [
         "BCI",
         "Unity",
@@ -54,7 +54,7 @@
       "title": "Deep Harbour",
       "description": "Dynamic pricing platform for container logistics using LSTM networks.",
       "fullDescription": "Deep Harbour is a platform for cargo owners, freight forwarders and transportation companies to efficiently handle container flow by adjusting prices of supply/demand using Dynamic Pricing. The model is based on LSTM networks fed with prediction of peaks from historical data.",
-      "image": "assets/projects/DeepHarbor/deep_harbor.png",
+      "image": "assets/images/webp/deep_harbor.webp",
       "tags": [
         "Deep Learning",
         "Deep Learning",
@@ -116,7 +116,7 @@
       "title": "Music-Emotion",
       "description": "Real-time emotion recognition from EEG during music listening.",
       "fullDescription": "Pipeline to process and classify emotional valence and arousal in brain activity of users listening to music. Proof of concept for emotion-based music recommendation systems.",
-      "image": "assets/projects/Music-Emotion/me.jpg",
+      "image": "assets/projects/Music-Emotion/me_lowres.jpg",
       "tags": [
         "Machine Learning",
         "EEG",
@@ -130,7 +130,7 @@
       "title": "Doc-Hoc",
       "description": "Concept for a BCI-powered language learning assistant.",
       "fullDescription": "Doc-Hoc is a concept for a BCI-powered assistant for language learning based on the OpenBCI ecosystem and designed during the BR41N.IO 2022 hackathon. The idea behind Doc-Hoc is to provide analytics on the level of relaxation and concentration to help the students organising their study and avoid stressful sessions",
-      "image": "assets/projects/DocHoc/dochoc.png",
+      "image": "assets/images/webp/dochoc.webp",
       "tags": [
         "Figma",
         "BCI",
@@ -158,7 +158,7 @@
       "title": "Amuleto",
       "description": "Sincere Pill Dispenser for home care.",
       "fullDescription": "Amuleto is a sincere and courageous pill dispenser designed to create an experience that helps patients cope with their diagnosis, both from the social and health perspectives. The project was the outcome of a Multisensory Design process that aimed at including multiple human senses in the design of a product.",
-      "image": "assets/projects/amuleto/3d_render_1.jpg",
+      "image": "assets/images/webp/amuleto.webp",
       "tags": [
         "Unreal Engine",
         "Illustrator",
@@ -171,7 +171,7 @@
       "title": "Exhibition of a Lifetime",
       "description": "Mixed reality application for music composition and mixing.",
       "fullDescription": "Exhibition of a Lifetime is a VR art gallery where spectators are driven through a visual and audio experience that represents the four phases of life: childhood, youth, adulthood and seniority. The goal of the project was to explore innovative ways for people to interact with art pieces",
-      "image": "assets/projects/exhibition/home.png",
+      "image": "assets/images/webp/lifetime.webp",
       "tags": [
         "Unity",
         "Mixed Reality",
@@ -185,7 +185,7 @@
       "title": "Gamerly",
       "description": "Platform for game developers to find coaching and peers.",
       "fullDescription": "Gamerly is a platform for game developers to find coaching and other peers to work with on new game projects. We designed Gamerly as a challenge to innovate the market of game development by adding a networking component to build new teams and  with the possibility of requesting coaching from senior members of the community.",
-      "image": "assets/projects/Gamerly/Find Collaborators.png",
+      "image": "assets/images/webp/gamerly.webp",
       "tags": [
         "Figma",
         "Design"
@@ -212,7 +212,7 @@
       "title": "Turkey Jump!",
       "description": "Flappy Bird clone controlled by voice volume in a space-themed environment.",
       "fullDescription": "Turkey Jump! is a 2D platformer game developed in Unity, as part of a study on alternative input methods for videogames. The game is a clone of the famous and unforgiving Flappy Bird, but instead of touch pressure, the jumps of the turkey Kevin are triggered using the volume of the player's voice.",
-      "image": "assets/projects/TurkeyJump!/turkey_jump.png",
+      "image": "assets/images/webp/turkey_jump.webp",
       "tags": [
         "Unity",
         "Video Game"
@@ -251,7 +251,7 @@
       "title": "Throw Away",
       "description": "Interactive tangible serious game prototype to teach children proper waste recycling.",
       "fullDescription": "ThrowAway is a design prototype of an interactive tangible serious game to teach children how to properly recycle waste.",
-      "image": "assets/projects/ThrowAway/home.png",
+      "image": "assets/images/webp/throwaway.webp",
       "tags": [
         "Design",
         "Illustrator",
